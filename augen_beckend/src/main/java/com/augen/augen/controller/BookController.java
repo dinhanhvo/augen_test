@@ -18,10 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.augen.augen.model.BuyBookModel;
 import com.augen.augen.response.ApiResp;
 
-
-
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4300")
 public class BookController {
 
     @GetMapping("/books")
