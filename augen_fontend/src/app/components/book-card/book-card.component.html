@@ -1,0 +1,8 @@
+<!-- <p>book-card works!</p> -->
+<!-- {{book | json }} -->
+<div *ngIf="book"  class="bcard">
+    <img [src]="book.imageLinks.thumbnail" >
+    <h4>{{book.title}}</h4>
+    {{book.author}}-{{book.publishedDate}}
+    <p-button label="Buy" (onClick)="emitData()"></p-button>
+</div>

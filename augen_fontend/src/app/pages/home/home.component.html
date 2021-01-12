@@ -1,0 +1,12 @@
+<!-- <p>home works!</p> -->
+Total items: {{books.length}}
+<br>
+<div class="products d-flex d-inline-flex justify-content-between">
+    <div  *ngFor="let book of books" >
+        <app-book-card
+            [book] = book
+            (outputData)="onBookSelected($event)"
+        >
+        </app-book-card>
+    </div>
+</div>

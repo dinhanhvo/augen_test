@@ -1,0 +1,831 @@
+{
+    "kind": "books#volumes",
+    "totalItems": 385,
+    "items": [
+      {
+        "kind": "books#volume",
+        "id": "B11q4S2Ls0wC",
+        "etag": "9PIjHt+Ybt4",
+        "selfLink": "https://www.googleapis.com/books/v1/volumes/B11q4S2Ls0wC",
+        "volumeInfo": {
+          "title": "Music-Inspired Harmony Search Algorithm",
+          "subtitle": "Theory and Applications",
+          "authors": [
+            "Zong Woo Geem"
+          ],
+          "publisher": "Springer Science & Business Media",
+          "publishedDate": "2009-05-12",
+          "description": "Calculus has been used in solving many scientific and engineering problems. For optimization problems, however, the differential calculus technique sometimes has a drawback when the objective function is step-wise, discontinuous, or multi-modal, or when decision variables are discrete rather than continuous. Thus, researchers have recently turned their interests into metaheuristic algorithms that have been inspired by natural phenomena such as evolution, animal behavior, or metallic annealing. This book especially focuses on a music-inspired metaheuristic algorithm, harmony search. Interestingly, there exists an analogy between music and optimization: each musical instrument corresponds to each decision variable; musical note corresponds to variable value; and harmony corresponds to solution vector. Just like musicians in Jazz improvisation play notes randomly or based on experiences in order to find fantastic harmony, variables in the harmony search algorithm have random values or previously-memorized good values in order to find optimal solution.",
+          "industryIdentifiers": [
+            {
+              "type": "ISBN_13",
+              "identifier": "9783642001840"
+            },
+            {
+              "type": "ISBN_10",
+              "identifier": "364200184X"
+            }
+          ],
+          "readingModes": {
+            "text": false,
+            "image": true
+          },
+          "pageCount": 206,
+          "printType": "BOOK",
+          "categories": [
+            "Mathematics"
+          ],
+          "maturityRating": "NOT_MATURE",
+          "allowAnonLogging": false,
+          "contentVersion": "preview-1.0.0",
+          "panelizationSummary": {
+            "containsEpubBubbles": false,
+            "containsImageBubbles": false
+          },
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=B11q4S2Ls0wC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=B11q4S2Ls0wC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "language": "en",
+          "previewLink": "http://books.google.com.vn/books?id=B11q4S2Ls0wC&pg=PA1&dq=%7Bsearch&hl=&cd=1&source=gbs_api",
+          "infoLink": "http://books.google.com.vn/books?id=B11q4S2Ls0wC&dq=%7Bsearch&hl=&source=gbs_api",
+          "canonicalVolumeLink": "https://books.google.com/books/about/Music_Inspired_Harmony_Search_Algorithm.html?hl=&id=B11q4S2Ls0wC"
+        },
+        "saleInfo": {
+          "country": "VN",
+          "saleability": "NOT_FOR_SALE",
+          "isEbook": false
+        },
+        "accessInfo": {
+          "country": "VN",
+          "viewability": "PARTIAL",
+          "embeddable": true,
+          "publicDomain": false,
+          "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+          "epub": {
+            "isAvailable": false
+          },
+          "pdf": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.com.vn/books/download/Music_Inspired_Harmony_Search_Algorithm-sample-pdf.acsm?id=B11q4S2Ls0wC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+          },
+          "webReaderLink": "http://play.google.com/books/reader?id=B11q4S2Ls0wC&hl=&printsec=frontcover&source=gbs_api",
+          "accessViewStatus": "SAMPLE",
+          "quoteSharingAllowed": false
+        },
+        "searchInfo": {
+          "textSnippet": "This first chapter intends to review and analyze the powerful new Harmony \u003cbr\u003e\n\u003cb\u003eSearch\u003c/b\u003e (HS) algorithm in the context of metaheuristic algorithms. We will first \u003cbr\u003e\noutline the fundamental steps of HS, and show how it works. We then try to \u003cbr\u003e\nidentify the&nbsp;..."
+        }
+      },
+      {
+        "kind": "books#volume",
+        "id": "gr7Ug5In4sgC",
+        "etag": "oR7mVq1LNIo",
+        "selfLink": "https://www.googleapis.com/books/v1/volumes/gr7Ug5In4sgC",
+        "volumeInfo": {
+          "title": "Stochastic Adaptive Search for Global Optimization",
+          "authors": [
+            "Z.B. Zabinsky"
+          ],
+          "publisher": "Springer Science & Business Media",
+          "publishedDate": "2003-09-30",
+          "description": "The book overviews several stochastic adaptive search methods for global optimization and provides analytical results regarding their performance and complexity. It develops a class of hit-and-run algorithms that are theoretically motivated and do not require fine-tuning of parameters. Several engineering global optimization problems are summarized to demonstrate the kinds of practical problems that are now within reach. Audience: This book is suitable for graduate students, researchers and practitioners in operations research, engineering, and mathematics.",
+          "industryIdentifiers": [
+            {
+              "type": "ISBN_10",
+              "identifier": "140207526X"
+            },
+            {
+              "type": "ISBN_13",
+              "identifier": "9781402075261"
+            }
+          ],
+          "readingModes": {
+            "text": false,
+            "image": true
+          },
+          "pageCount": 224,
+          "printType": "BOOK",
+          "categories": [
+            "Computers"
+          ],
+          "maturityRating": "NOT_MATURE",
+          "allowAnonLogging": false,
+          "contentVersion": "0.0.2.0.preview.1",
+          "panelizationSummary": {
+            "containsEpubBubbles": false,
+            "containsImageBubbles": false
+          },
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=gr7Ug5In4sgC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=gr7Ug5In4sgC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "language": "en",
+          "previewLink": "http://books.google.com.vn/books?id=gr7Ug5In4sgC&pg=PA10&dq=%7Bsearch&hl=&cd=2&source=gbs_api",
+          "infoLink": "http://books.google.com.vn/books?id=gr7Ug5In4sgC&dq=%7Bsearch&hl=&source=gbs_api",
+          "canonicalVolumeLink": "https://books.google.com/books/about/Stochastic_Adaptive_Search_for_Global_Op.html?hl=&id=gr7Ug5In4sgC"
+        },
+        "saleInfo": {
+          "country": "VN",
+          "saleability": "NOT_FOR_SALE",
+          "isEbook": false
+        },
+        "accessInfo": {
+          "country": "VN",
+          "viewability": "PARTIAL",
+          "embeddable": true,
+          "publicDomain": false,
+          "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+          "epub": {
+            "isAvailable": false
+          },
+          "pdf": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.com.vn/books/download/Stochastic_Adaptive_Search_for_Global_Op-sample-pdf.acsm?id=gr7Ug5In4sgC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+          },
+          "webReaderLink": "http://play.google.com/books/reader?id=gr7Ug5In4sgC&hl=&printsec=frontcover&source=gbs_api",
+          "accessViewStatus": "SAMPLE",
+          "quoteSharingAllowed": false
+        },
+        "searchInfo": {
+          "textSnippet": "We start with a brief description of exhaustive \u003cb\u003esearch\u003c/b\u003e, including grid \u003cb\u003esearch\u003c/b\u003e and \u003cbr\u003e\npure random \u003cb\u003esearch\u003c/b\u003e. Then we present a framework for sequential random \u003cb\u003esearch\u003c/b\u003e \u003cbr\u003e\nand a brief discussion of simulated annealing. This is followed by a framework&nbsp;..."
+        }
+      },
+      {
+        "kind": "books#volume",
+        "id": "X4BcOZEa4HsC",
+        "etag": "i2WwA6Hy6Ns",
+        "selfLink": "https://www.googleapis.com/books/v1/volumes/X4BcOZEa4HsC",
+        "volumeInfo": {
+          "title": "Search Methodologies",
+          "subtitle": "Introductory Tutorials in Optimization and Decision Support Techniques",
+          "authors": [
+            "Edmund K. Burke",
+            "Graham Kendall"
+          ],
+          "publisher": "Springer Science & Business Media",
+          "publishedDate": "2006-03-20",
+          "description": "This book is a tutorial survey of the methodologies that are at the confluence of several fields: Computer Science, Mathematics and Operations Research. It provides a carefully structured and integrated treatment of the major technologies in optimization and search methodology. The chapter authors are drawn from across Computer Science and Operations Research and include some of the world’s leading authorities in their field. It can be used as a textbook or a reference book to learn and apply these methodologies to a wide range of today’s problems.",
+          "industryIdentifiers": [
+            {
+              "type": "ISBN_13",
+              "identifier": "9780387283562"
+            },
+            {
+              "type": "ISBN_10",
+              "identifier": "0387283560"
+            }
+          ],
+          "readingModes": {
+            "text": true,
+            "image": true
+          },
+          "pageCount": 620,
+          "printType": "BOOK",
+          "categories": [
+            "Business & Economics"
+          ],
+          "averageRating": 4,
+          "ratingsCount": 1,
+          "maturityRating": "NOT_MATURE",
+          "allowAnonLogging": false,
+          "contentVersion": "0.1.3.0.preview.3",
+          "panelizationSummary": {
+            "containsEpubBubbles": false,
+            "containsImageBubbles": false
+          },
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=X4BcOZEa4HsC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=X4BcOZEa4HsC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "language": "en",
+          "previewLink": "http://books.google.com.vn/books?id=X4BcOZEa4HsC&pg=PA165&dq=%7Bsearch&hl=&cd=3&source=gbs_api",
+          "infoLink": "https://play.google.com/store/books/details?id=X4BcOZEa4HsC&source=gbs_api",
+          "canonicalVolumeLink": "https://play.google.com/store/books/details?id=X4BcOZEa4HsC"
+        },
+        "saleInfo": {
+          "country": "VN",
+          "saleability": "FOR_SALE",
+          "isEbook": true,
+          "listPrice": {
+            "amount": 2636725,
+            "currencyCode": "VND"
+          },
+          "retailPrice": {
+            "amount": 1845708,
+            "currencyCode": "VND"
+          },
+          "buyLink": "https://play.google.com/store/books/details?id=X4BcOZEa4HsC&rdid=book-X4BcOZEa4HsC&rdot=1&source=gbs_api",
+          "offers": [
+            {
+              "finskyOfferType": 1,
+              "listPrice": {
+                "amountInMicros": 2636725000000,
+                "currencyCode": "VND"
+              },
+              "retailPrice": {
+                "amountInMicros": 1845708000000,
+                "currencyCode": "VND"
+              }
+            }
+          ]
+        },
+        "accessInfo": {
+          "country": "VN",
+          "viewability": "PARTIAL",
+          "embeddable": true,
+          "publicDomain": false,
+          "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+          "epub": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.com.vn/books/download/Search_Methodologies-sample-epub.acsm?id=X4BcOZEa4HsC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+          },
+          "pdf": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.com.vn/books/download/Search_Methodologies-sample-pdf.acsm?id=X4BcOZEa4HsC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+          },
+          "webReaderLink": "http://play.google.com/books/reader?id=X4BcOZEa4HsC&hl=&printsec=frontcover&source=gbs_api",
+          "accessViewStatus": "SAMPLE",
+          "quoteSharingAllowed": false
+        },
+        "searchInfo": {
+          "textSnippet": "Over the last 15 years, hundreds of papers presenting applications of tabu \u003cb\u003esearch\u003c/b\u003e\u003cbr\u003e\n, a heuristic method originally proposed by Glover (1986), to various \u003cbr\u003e\ncombinatorial problems have appeared in the operations research literature: see,\u003cbr\u003e\n&nbsp;..."
+        }
+      },
+      {
+        "kind": "books#volume",
+        "id": "bifeGGCDlWcC",
+        "etag": "NEwN7JkWTwY",
+        "selfLink": "https://www.googleapis.com/books/v1/volumes/bifeGGCDlWcC",
+        "volumeInfo": {
+          "title": "State-Space Search",
+          "subtitle": "Algorithms, Complexity, Extensions, and Applications",
+          "authors": [
+            "Weixiong Zhang"
+          ],
+          "publisher": "Springer Science & Business Media",
+          "publishedDate": "1999-10-14",
+          "description": "This book is particularly concerned with heuristic state-space search for combinatorial optimization. Its two central themes are the average-case complexity of state-space search algorithms and the applications of the results notably to branch-and-bound techniques. Primarily written for researchers in computer science, the author presupposes a basic familiarity with complexity theory, and it is assumed that the reader is familiar with the basic concepts of random variables and recursive functions. Two successful applications are presented in depth: one is a set of state-space transformation methods which can be used to find approximate solutions quickly, and the second is forward estimation for constructing more informative evaluation functions.",
+          "industryIdentifiers": [
+            {
+              "type": "ISBN_10",
+              "identifier": "0387988327"
+            },
+            {
+              "type": "ISBN_13",
+              "identifier": "9780387988320"
+            }
+          ],
+          "readingModes": {
+            "text": false,
+            "image": true
+          },
+          "pageCount": 201,
+          "printType": "BOOK",
+          "categories": [
+            "Computers"
+          ],
+          "averageRating": 2,
+          "ratingsCount": 1,
+          "maturityRating": "NOT_MATURE",
+          "allowAnonLogging": false,
+          "contentVersion": "0.0.1.0.preview.1",
+          "panelizationSummary": {
+            "containsEpubBubbles": false,
+            "containsImageBubbles": false
+          },
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=bifeGGCDlWcC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=bifeGGCDlWcC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "language": "en",
+          "previewLink": "http://books.google.com.vn/books?id=bifeGGCDlWcC&pg=PA2&dq=%7Bsearch&hl=&cd=4&source=gbs_api",
+          "infoLink": "http://books.google.com.vn/books?id=bifeGGCDlWcC&dq=%7Bsearch&hl=&source=gbs_api",
+          "canonicalVolumeLink": "https://books.google.com/books/about/State_Space_Search.html?hl=&id=bifeGGCDlWcC"
+        },
+        "saleInfo": {
+          "country": "VN",
+          "saleability": "NOT_FOR_SALE",
+          "isEbook": false
+        },
+        "accessInfo": {
+          "country": "VN",
+          "viewability": "PARTIAL",
+          "embeddable": true,
+          "publicDomain": false,
+          "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+          "epub": {
+            "isAvailable": false
+          },
+          "pdf": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.com.vn/books/download/State_Space_Search-sample-pdf.acsm?id=bifeGGCDlWcC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+          },
+          "webReaderLink": "http://play.google.com/books/reader?id=bifeGGCDlWcC&hl=&printsec=frontcover&source=gbs_api",
+          "accessViewStatus": "SAMPLE",
+          "quoteSharingAllowed": false
+        },
+        "searchInfo": {
+          "textSnippet": "During the process of exploring a state space, a \u003cb\u003esearch\u003c/b\u003e algorithm evaluates the \u003cbr\u003e\nmerit of the nodes in the state space to decide if a node needs to be examined, \u003cbr\u003e\nas well as the order in which the nodes are explored. The node evaluation is&nbsp;..."
+        }
+      },
+      {
+        "kind": "books#volume",
+        "id": "nqxOGSTJkuYC",
+        "etag": "F9uK3zdu4Fc",
+        "selfLink": "https://www.googleapis.com/books/v1/volumes/nqxOGSTJkuYC",
+        "volumeInfo": {
+          "title": "Search Theory",
+          "subtitle": "Some Recent Developments",
+          "authors": [
+            "Chudnovsky"
+          ],
+          "publisher": "CRC Press",
+          "publishedDate": "1988-09-26",
+          "description": "On the solution of an optimal search problem with an exponential detection function. Covers one- and two-sided detection problems by furnishing continuous and discret time strategies; examines two-sided search strategies with solutions in hide and seek games in many discrete and continuous bounded",
+          "industryIdentifiers": [
+            {
+              "type": "ISBN_10",
+              "identifier": "0824780000"
+            },
+            {
+              "type": "ISBN_13",
+              "identifier": "9780824780005"
+            }
+          ],
+          "readingModes": {
+            "text": false,
+            "image": true
+          },
+          "pageCount": 176,
+          "printType": "BOOK",
+          "categories": [
+            "Mathematics"
+          ],
+          "maturityRating": "NOT_MATURE",
+          "allowAnonLogging": false,
+          "contentVersion": "0.0.3.0.preview.1",
+          "panelizationSummary": {
+            "containsEpubBubbles": false,
+            "containsImageBubbles": false
+          },
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=nqxOGSTJkuYC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=nqxOGSTJkuYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "language": "en",
+          "previewLink": "http://books.google.com.vn/books?id=nqxOGSTJkuYC&pg=PA103&dq=%7Bsearch&hl=&cd=5&source=gbs_api",
+          "infoLink": "http://books.google.com.vn/books?id=nqxOGSTJkuYC&dq=%7Bsearch&hl=&source=gbs_api",
+          "canonicalVolumeLink": "https://books.google.com/books/about/Search_Theory.html?hl=&id=nqxOGSTJkuYC"
+        },
+        "saleInfo": {
+          "country": "VN",
+          "saleability": "NOT_FOR_SALE",
+          "isEbook": false
+        },
+        "accessInfo": {
+          "country": "VN",
+          "viewability": "PARTIAL",
+          "embeddable": true,
+          "publicDomain": false,
+          "textToSpeechPermission": "ALLOWED",
+          "epub": {
+            "isAvailable": false
+          },
+          "pdf": {
+            "isAvailable": false
+          },
+          "webReaderLink": "http://play.google.com/books/reader?id=nqxOGSTJkuYC&hl=&printsec=frontcover&source=gbs_api",
+          "accessViewStatus": "SAMPLE",
+          "quoteSharingAllowed": false
+        },
+        "searchInfo": {
+          "textSnippet": "5 \u003cb\u003eSearch\u003c/b\u003e Plans Generated by Billiards DAVID CHUDNOVSKY AND GREGORY \u003cbr\u003e\nCHUDNOVSKY / Department of Mathematics , Columbia University , New York , \u003cbr\u003e\nNew York 1 . INTRODUCTION In an attempt to construct \u003cb\u003esearch\u003c/b\u003e trajectories&nbsp;..."
+        }
+      },
+      {
+        "kind": "books#volume",
+        "id": "LZ1dAQAAQBAJ",
+        "etag": "05SVDNM69zY",
+        "selfLink": "https://www.googleapis.com/books/v1/volumes/LZ1dAQAAQBAJ",
+        "volumeInfo": {
+          "title": "Exploratory Search",
+          "subtitle": "Beyond the Query-Response Paradigm",
+          "authors": [
+            "Ryen White",
+            "Resa Roth"
+          ],
+          "publisher": "Morgan & Claypool Publishers",
+          "publishedDate": "2013-08-01",
+          "description": "As information becomes more ubiquitous and the demands that searchers have on search systems grow, there is a need to support search behaviors beyond simple lookup. Information seeking is the process or activity of attempting to obtain information in both human and technological contexts. Exploratory search describes an information-seeking problem context that is open-ended, persistent, and multifaceted, and information-seeking processes that are opportunistic, iterative, and multitactical. Exploratory searchers aim to solve complex problems and develop enhanced mental capacities. Exploratory search systems support this through symbiotic human-machine relationships that provide guidance in exploring unfamiliar information landscapes. Exploratory search has gained prominence in recent years. There is an increased interest from the information retrieval, information science, and human-computer interaction communities in moving beyond the traditional turn-taking interaction model supported by major Web search engines, and toward support for human intelligence amplification and information use. In this lecture, we introduce exploratory search, relate it to relevant extant research, outline the features of exploratory search systems, discuss the evaluation of these systems, and suggest some future directions for supporting exploratory search. Exploratory search is a new frontier in the search domain and is becoming increasingly important in shaping our future world. Table of Contents: Introduction / Defining Exploratory Search / Related Work / Features of Exploratory Search Systems / Evaluation of Exploratory Search Systems / Future Directions and concluding Remarks",
+          "industryIdentifiers": [
+            {
+              "type": "ISBN_13",
+              "identifier": "9781598297843"
+            },
+            {
+              "type": "ISBN_10",
+              "identifier": "1598297848"
+            }
+          ],
+          "readingModes": {
+            "text": false,
+            "image": true
+          },
+          "pageCount": 98,
+          "printType": "BOOK",
+          "categories": [
+            "Computers"
+          ],
+          "maturityRating": "NOT_MATURE",
+          "allowAnonLogging": false,
+          "contentVersion": "preview-1.0.0",
+          "panelizationSummary": {
+            "containsEpubBubbles": false,
+            "containsImageBubbles": false
+          },
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=LZ1dAQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=LZ1dAQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "language": "en",
+          "previewLink": "http://books.google.com.vn/books?id=LZ1dAQAAQBAJ&pg=PA73&dq=%7Bsearch&hl=&cd=6&source=gbs_api",
+          "infoLink": "https://play.google.com/store/books/details?id=LZ1dAQAAQBAJ&source=gbs_api",
+          "canonicalVolumeLink": "https://play.google.com/store/books/details?id=LZ1dAQAAQBAJ"
+        },
+        "saleInfo": {
+          "country": "VN",
+          "saleability": "FOR_SALE",
+          "isEbook": true,
+          "listPrice": {
+            "amount": 554364,
+            "currencyCode": "VND"
+          },
+          "retailPrice": {
+            "amount": 388055,
+            "currencyCode": "VND"
+          },
+          "buyLink": "https://play.google.com/store/books/details?id=LZ1dAQAAQBAJ&rdid=book-LZ1dAQAAQBAJ&rdot=1&source=gbs_api",
+          "offers": [
+            {
+              "finskyOfferType": 1,
+              "listPrice": {
+                "amountInMicros": 554364000000,
+                "currencyCode": "VND"
+              },
+              "retailPrice": {
+                "amountInMicros": 388055000000,
+                "currencyCode": "VND"
+              }
+            }
+          ]
+        },
+        "accessInfo": {
+          "country": "VN",
+          "viewability": "PARTIAL",
+          "embeddable": true,
+          "publicDomain": false,
+          "textToSpeechPermission": "ALLOWED",
+          "epub": {
+            "isAvailable": false
+          },
+          "pdf": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.com.vn/books/download/Exploratory_Search-sample-pdf.acsm?id=LZ1dAQAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+          },
+          "webReaderLink": "http://play.google.com/books/reader?id=LZ1dAQAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+          "accessViewStatus": "SAMPLE",
+          "quoteSharingAllowed": false
+        },
+        "searchInfo": {
+          "textSnippet": "\u003cb\u003esearch\u003c/b\u003e skill and knowledge level and adapt the \u003cb\u003esearch\u003c/b\u003e results displayed to its \u003cbr\u003e\nestimate of the user&#39;s current level. 6.1.3 Task Adaptation There are variety of \u003cbr\u003e\ndifferent task types, and those that require exploration are only a subset. How- \u003cbr\u003e\never, it&nbsp;..."
+        }
+      },
+      {
+        "kind": "books#volume",
+        "id": "CG5WxBHBMrQC",
+        "etag": "6u9CKh5UZu8",
+        "selfLink": "https://www.googleapis.com/books/v1/volumes/CG5WxBHBMrQC",
+        "volumeInfo": {
+          "title": "Search and Rescue Dogs",
+          "authors": [
+            "Charles George",
+            "Linda George"
+          ],
+          "publisher": "Capstone",
+          "publishedDate": "1998",
+          "description": "Describes the history, selection, training, and accomplishments of different dogs used in search and rescue operations.",
+          "industryIdentifiers": [
+            {
+              "type": "ISBN_10",
+              "identifier": "1560657537"
+            },
+            {
+              "type": "ISBN_13",
+              "identifier": "9781560657538"
+            }
+          ],
+          "readingModes": {
+            "text": false,
+            "image": true
+          },
+          "pageCount": 48,
+          "printType": "BOOK",
+          "categories": [
+            "Juvenile Nonfiction"
+          ],
+          "maturityRating": "NOT_MATURE",
+          "allowAnonLogging": false,
+          "contentVersion": "0.2.1.0.preview.1",
+          "panelizationSummary": {
+            "containsEpubBubbles": false,
+            "containsImageBubbles": false
+          },
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=CG5WxBHBMrQC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=CG5WxBHBMrQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "language": "en",
+          "previewLink": "http://books.google.com.vn/books?id=CG5WxBHBMrQC&pg=PA39&dq=%7Bsearch&hl=&cd=7&source=gbs_api",
+          "infoLink": "http://books.google.com.vn/books?id=CG5WxBHBMrQC&dq=%7Bsearch&hl=&source=gbs_api",
+          "canonicalVolumeLink": "https://books.google.com/books/about/Search_and_Rescue_Dogs.html?hl=&id=CG5WxBHBMrQC"
+        },
+        "saleInfo": {
+          "country": "VN",
+          "saleability": "NOT_FOR_SALE",
+          "isEbook": false
+        },
+        "accessInfo": {
+          "country": "VN",
+          "viewability": "PARTIAL",
+          "embeddable": true,
+          "publicDomain": false,
+          "textToSpeechPermission": "ALLOWED",
+          "epub": {
+            "isAvailable": false
+          },
+          "pdf": {
+            "isAvailable": false
+          },
+          "webReaderLink": "http://play.google.com/books/reader?id=CG5WxBHBMrQC&hl=&printsec=frontcover&source=gbs_api",
+          "accessViewStatus": "SAMPLE",
+          "quoteSharingAllowed": false
+        },
+        "searchInfo": {
+          "textSnippet": "CHAPTER 5 \u003cb\u003eSearch\u003c/b\u003e and Rescue Dog Stories I here are many stories about \u003cbr\u003e\n\u003cb\u003esearch\u003c/b\u003e and rescue dogs . Some dogs rescued people who were trapped under \u003cbr\u003e\nbuilding debris . Others saved people who were buried in avalanches . Others \u003cbr\u003e\nfound&nbsp;..."
+        }
+      },
+      {
+        "kind": "books#volume",
+        "id": "1iMnwC0w11wC",
+        "etag": "H4Q6kb6t9AU",
+        "selfLink": "https://www.googleapis.com/books/v1/volumes/1iMnwC0w11wC",
+        "volumeInfo": {
+          "title": "The Complete Academic Search Manual",
+          "subtitle": "A Systematic Approach to Successful and Inclusive Hiring",
+          "authors": [
+            "Lauren A. Vicker",
+            "Harriette J. Royer"
+          ],
+          "publisher": "Stylus Publishing, LLC.",
+          "publishedDate": "2005-09-30",
+          "description": "* Covers searches for all faculty, staff, and administrative positions * Emphasizes aligning hires to departmental and institutional goals * Describes proven practices for successful outcomes Successful academic searches, where high caliber college faculty and administrators are recruited and retained, are critical to the vitality and sustainability of every institution. In higher education many faculty and administrators are thrust into the role of academic search with little preparation other than their own experience of being interviewed. Typically search committees also have to manage the process in the context of already heavy workloads. This manual provides faculty members, department heads, chairs, deans, and members of search committees with a straightforward ten-step process, using proven strategies and systematic planning, designed to facilitate group dynamics while members seek out and identify high caliber candidates and reach consensus on the best one for the institution. This book concisely lays out everything committee members need to know, replete with real life examples from diverse institutions, sample forms, timelines, and checklists. The process begins with the composition of the committee, understanding its charge, and the responsibilities of the chair and its members. It then leads the committee through the steps of drawing up the position description using input from all stakeholders, publicizing the position, evaluating resumes, planning and conducting interviews, narrowing the pool, to the final selection and negotiation processes. Throughout, the authors attend to issues of diversity and inclusion, aligning the hire with institutional goals, and avoiding legal pitfalls. Equally importantly, they set out a framework for welcoming, acclimating, and retaining new hires to ensure the return on the institution's substantial investment of time and expense to recruit them.",
+          "industryIdentifiers": [
+            {
+              "type": "ISBN_13",
+              "identifier": "9781579221393"
+            },
+            {
+              "type": "ISBN_10",
+              "identifier": "1579221394"
+            }
+          ],
+          "readingModes": {
+            "text": true,
+            "image": true
+          },
+          "pageCount": 96,
+          "printType": "BOOK",
+          "categories": [
+            "Education"
+          ],
+          "maturityRating": "NOT_MATURE",
+          "allowAnonLogging": false,
+          "contentVersion": "0.0.3.0.preview.3",
+          "panelizationSummary": {
+            "containsEpubBubbles": false,
+            "containsImageBubbles": false
+          },
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=1iMnwC0w11wC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=1iMnwC0w11wC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "language": "en",
+          "previewLink": "http://books.google.com.vn/books?id=1iMnwC0w11wC&pg=PA74&dq=%7Bsearch&hl=&cd=8&source=gbs_api",
+          "infoLink": "https://play.google.com/store/books/details?id=1iMnwC0w11wC&source=gbs_api",
+          "canonicalVolumeLink": "https://play.google.com/store/books/details?id=1iMnwC0w11wC"
+        },
+        "saleInfo": {
+          "country": "VN",
+          "saleability": "FOR_SALE",
+          "isEbook": true,
+          "listPrice": {
+            "amount": 600561,
+            "currencyCode": "VND"
+          },
+          "retailPrice": {
+            "amount": 420393,
+            "currencyCode": "VND"
+          },
+          "buyLink": "https://play.google.com/store/books/details?id=1iMnwC0w11wC&rdid=book-1iMnwC0w11wC&rdot=1&source=gbs_api",
+          "offers": [
+            {
+              "finskyOfferType": 1,
+              "listPrice": {
+                "amountInMicros": 600561000000,
+                "currencyCode": "VND"
+              },
+              "retailPrice": {
+                "amountInMicros": 420393000000,
+                "currencyCode": "VND"
+              }
+            }
+          ]
+        },
+        "accessInfo": {
+          "country": "VN",
+          "viewability": "PARTIAL",
+          "embeddable": true,
+          "publicDomain": false,
+          "textToSpeechPermission": "ALLOWED",
+          "epub": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.com.vn/books/download/The_Complete_Academic_Search_Manual-sample-epub.acsm?id=1iMnwC0w11wC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+          },
+          "pdf": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.com.vn/books/download/The_Complete_Academic_Search_Manual-sample-pdf.acsm?id=1iMnwC0w11wC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+          },
+          "webReaderLink": "http://play.google.com/books/reader?id=1iMnwC0w11wC&hl=&printsec=frontcover&source=gbs_api",
+          "accessViewStatus": "SAMPLE",
+          "quoteSharingAllowed": false
+        },
+        "searchInfo": {
+          "textSnippet": "Acknowledging a Failed \u003cb\u003eSearch\u003c/b\u003e Mary&#39;s Story Our \u003cb\u003esearch\u003c/b\u003e committee had \u003cbr\u003e\nconducted in-depth on-cam- pus interviews with five semifinalists for the faculty \u003cbr\u003e\nposition. At the conclusion of the process, two emerged as the strongest finalists. \u003cbr\u003e\nWe met&nbsp;..."
+        }
+      },
+      {
+        "kind": "books#volume",
+        "id": "J0r-vEBH4foC",
+        "etag": "WoWKGmPHR1g",
+        "selfLink": "https://www.googleapis.com/books/v1/volumes/J0r-vEBH4foC",
+        "volumeInfo": {
+          "title": "Harmony Search Algorithms for Structural Design Optimization",
+          "authors": [
+            "Zong Woo Geem"
+          ],
+          "publisher": "Springer Science & Business Media",
+          "publishedDate": "2009-09-28",
+          "description": "Various structures, such as buildings, bridges, and paved roads play an important role in our lives. However, these construction projects require large expenditures. Designing infrastructure cost-efficiently while satisfying all necessary design constraints is one of the most important and difficult tasks for a structural engineer. Traditionally, mathematical gradient-based optimization techniques have been applied to these designs. However, these gradient-based methods are not suitable for discrete design variables such as factory-made cross sectional area of structural members. Recently, researchers have turned their interest to phenomenon-mimicking optimization techniques because these techniques have proved able to efficiently handle discrete design variables. One of these techniques is harmony search, an algorithm developed from musical improvisation that has been applied to various structural design problems and has demonstrated cost-savings. This book gathers all the latest developments relating to the application of the harmony search algorithm in the structural design field in order for readers to efficiently understand the full spectrum of the algorithm’s potential and to easily apply the algorithm to their own structural problems. This book contains six chapters with the following subjects: standard harmony search algorithm and its applications by Lee; standard harmony search algorithm for steel frame design by Degertekin; adaptive harmony search algorithm and its applications by Saka and Hasançebi; harmony particle swarm algorithm and its applications by Li and Liu; hybrid algorithm of harmony search, particle swarm & ant colony for structural design by Kaveh and Talatahari; and parameter calibration of viscoelastic and damage functions by Mun and Geem.",
+          "industryIdentifiers": [
+            {
+              "type": "ISBN_13",
+              "identifier": "9783642034497"
+            },
+            {
+              "type": "ISBN_10",
+              "identifier": "3642034497"
+            }
+          ],
+          "readingModes": {
+            "text": false,
+            "image": true
+          },
+          "pageCount": 227,
+          "printType": "BOOK",
+          "categories": [
+            "Technology & Engineering"
+          ],
+          "maturityRating": "NOT_MATURE",
+          "allowAnonLogging": false,
+          "contentVersion": "preview-1.0.0",
+          "panelizationSummary": {
+            "containsEpubBubbles": false,
+            "containsImageBubbles": false
+          },
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=J0r-vEBH4foC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=J0r-vEBH4foC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "language": "en",
+          "previewLink": "http://books.google.com.vn/books?id=J0r-vEBH4foC&pg=PA1&dq=%7Bsearch&hl=&cd=9&source=gbs_api",
+          "infoLink": "http://books.google.com.vn/books?id=J0r-vEBH4foC&dq=%7Bsearch&hl=&source=gbs_api",
+          "canonicalVolumeLink": "https://books.google.com/books/about/Harmony_Search_Algorithms_for_Structural.html?hl=&id=J0r-vEBH4foC"
+        },
+        "saleInfo": {
+          "country": "VN",
+          "saleability": "NOT_FOR_SALE",
+          "isEbook": false
+        },
+        "accessInfo": {
+          "country": "VN",
+          "viewability": "PARTIAL",
+          "embeddable": true,
+          "publicDomain": false,
+          "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+          "epub": {
+            "isAvailable": false
+          },
+          "pdf": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.com.vn/books/download/Harmony_Search_Algorithms_for_Structural-sample-pdf.acsm?id=J0r-vEBH4foC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+          },
+          "webReaderLink": "http://play.google.com/books/reader?id=J0r-vEBH4foC&hl=&printsec=frontcover&source=gbs_api",
+          "accessViewStatus": "SAMPLE",
+          "quoteSharingAllowed": false
+        },
+        "searchInfo": {
+          "textSnippet": "\u003cb\u003eSearch\u003c/b\u003e. Algorithm. for. Structural. Design. Optimization. Kang Seok Lee1 Abstract\u003cbr\u003e\n. Most engineering optimization algorithms are based on numerical linear and \u003cbr\u003e\nnonlinear programming methods that require substantial gradient information \u003cbr\u003e\nand&nbsp;..."
+        }
+      },
+      {
+        "kind": "books#volume",
+        "id": "za12XAILNokC",
+        "etag": "1jitxfR1bsE",
+        "selfLink": "https://www.googleapis.com/books/v1/volumes/za12XAILNokC",
+        "volumeInfo": {
+          "title": "Search Computing",
+          "subtitle": "Challenges and Directions",
+          "authors": [
+            "Stefano Ceri",
+            "Marco Brambilla"
+          ],
+          "publisher": "Springer Science & Business Media",
+          "publishedDate": "2010-04",
+          "description": "Containing detailed papers on search computing, this book includes some visionary contributions on the latest trends and explores the background and related technologies. The papers are written by leading scientists and contain the latest results in the field.",
+          "industryIdentifiers": [
+            {
+              "type": "ISBN_13",
+              "identifier": "9783642123092"
+            },
+            {
+              "type": "ISBN_10",
+              "identifier": "3642123090"
+            }
+          ],
+          "readingModes": {
+            "text": true,
+            "image": true
+          },
+          "pageCount": 321,
+          "printType": "BOOK",
+          "categories": [
+            "Computers"
+          ],
+          "averageRating": 1,
+          "ratingsCount": 1,
+          "maturityRating": "NOT_MATURE",
+          "allowAnonLogging": false,
+          "contentVersion": "1.0.1.0.preview.3",
+          "panelizationSummary": {
+            "containsEpubBubbles": false,
+            "containsImageBubbles": false
+          },
+          "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=za12XAILNokC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=za12XAILNokC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+          },
+          "language": "en",
+          "previewLink": "http://books.google.com.vn/books?id=za12XAILNokC&pg=PA42&dq=%7Bsearch&hl=&cd=10&source=gbs_api",
+          "infoLink": "http://books.google.com.vn/books?id=za12XAILNokC&dq=%7Bsearch&hl=&source=gbs_api",
+          "canonicalVolumeLink": "https://books.google.com/books/about/Search_Computing.html?hl=&id=za12XAILNokC"
+        },
+        "saleInfo": {
+          "country": "VN",
+          "saleability": "NOT_FOR_SALE",
+          "isEbook": false
+        },
+        "accessInfo": {
+          "country": "VN",
+          "viewability": "PARTIAL",
+          "embeddable": true,
+          "publicDomain": false,
+          "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+          "epub": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.com.vn/books/download/Search_Computing-sample-epub.acsm?id=za12XAILNokC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+          },
+          "pdf": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.com.vn/books/download/Search_Computing-sample-pdf.acsm?id=za12XAILNokC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+          },
+          "webReaderLink": "http://play.google.com/books/reader?id=za12XAILNokC&hl=&printsec=frontcover&source=gbs_api",
+          "accessViewStatus": "SAMPLE",
+          "quoteSharingAllowed": false
+        },
+        "searchInfo": {
+          "textSnippet": "Chapter 4: The \u003cb\u003eSearch\u003c/b\u003e Engine Industry Tommaso Buganza1 and Emanuele \u003cbr\u003e\nDella Valle2 1 Dipartimento di Ingegneria Gestionale, Politecnico di Milano, \u003cbr\u003e\n20133 Milano, Italy 2 Dipartimento di Elettronica e Informazione, Politecnico di \u003cbr\u003e\nMilano,&nbsp;..."
+        }
+      }
+    ]
+  }

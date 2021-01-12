@@ -1,0 +1,55 @@
+.bcard {
+    border: solid 1px #007ACC;
+    width: 230px;
+    height: 280px;
+    margin: 10px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.body {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #004D47;
+    .title {
+        line-height: 30px;
+        display: block;
+        background-color: #004D47;
+        padding: 10px;
+        font-size: 2rem;
+        color: #fff;
+    }
+}
+.card {
+    width: 230px;
+    height: 280px;
+    border: 1px solid greenyellow;
+    font-size: 2rem;
+    text-align: center;
+    margin: 10px;
+    .price {
+        font-size: 2rem;
+        color: hotpink;
+    }
+    .des {
+        margin-top: 10px;
+    }
+    .footer {
+        margin-top: 5px;
+    }
+
+    .bt {
+        padding: 0 10px;
+    }
+    img {
+        width: 130px;
+        height: 150px;
+    }
+    .bodyCard {
+    }
+}
+.card:hover {
+    background-color: #D4E9FB;
+}
+
