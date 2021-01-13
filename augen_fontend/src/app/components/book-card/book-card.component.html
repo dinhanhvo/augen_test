@@ -1,8 +1,25 @@
 <!-- <p>book-card works!</p> -->
 <!-- {{book | json }} -->
 <div *ngIf="book"  class="bcard">
-    <img [src]="book.imageLinks.thumbnail" >
-    <h4>{{book.title}}</h4>
-    {{book.author}}-{{book.publishedDate}}
-    <p-button label="Buy" (onClick)="emitData()"></p-button>
+    <div class="img">
+        <div *ngIf="isDetail; else image_small">
+            <div>
+                <img [src]="book.imageLinks.thumbnail" >
+            </div>
+        </div>
+        <ng-template #image_small>
+            <div>
+                <img [src]="book.imageLinks.smallThumbnail" >
+            </div>
+        </ng-template>
+          
+    </div>
+    <div class="info">
+        <b>{{book.title}}</b>
+        <br>
+        {{book.author}}-{{book.publishedDate}}
+    </div>
+    <div class="footer" *ngIf="!isDetail">
+        <p-button label="Choose" (onClick)="emitData()"></p-button>
+    </div>
 </div>

@@ -5,8 +5,80 @@ Total items: {{books.length}}
     <div  *ngFor="let book of books" >
         <app-book-card
             [book] = book
+            [isDetail] = "false"
             (outputData)="onBookSelected($event)"
         >
         </app-book-card>
     </div>
 </div>
+<p-dialog header="Book Details" [(visible)]="displayDialog" 
+    [responsive]="true" showEffect="fade" [modal]="true" 
+    [closable]="true" [style]="{'width':'700px'}">
+    <div class="ui-g ui-fluid" *ngIf="selectedBook">
+        <div class="p-grid">
+            <div class="p-col-12 p-md-6 p-lg-6">
+                <app-book-card
+                [book] = selectedBook
+                [isDetail] = "true"
+                (outputData)="onBookSelected($event)"
+                >
+            </app-book-card>
+            </div>
+            <div class="p-col-12 p-md-6 p-lg-6 ">
+                <p>
+                    {{selectedBook.description}}
+                </p>
+            </div>
+            <!-- <div class="p-col-12 p-md-2 p-lg-2"></div> -->
+        </div>
+        <div class="p-grid card">
+            <div class="p-col-12 p-md-4 p-lg-4">
+                Time Delivery: 
+            </div>
+            <div class="p-col-12 p-md-8 p-lg-8">
+                <!-- <p-dropdown [options]="timeFactors" 
+                    placeholder="Choose a time"
+                    [(ngModel)]="selectedTimeFactor">
+                </p-dropdown> -->
+                <div *ngFor="let factor of timeFactors" class="p-field-checkbox">
+                    <p-radioButton inpudIt="factor.value" 
+                        [value]="factor" 
+                        [(ngModel)]="selectedCategory"
+                        >
+                    </p-radioButton>
+                    <label [for]="factor.label">{{factor.label}}</label>
+                </div>
+                
+            </div>
+        </div>
+        <div class="p-grid card">
+            <div class="p-col-12 p-md-4 p-lg-4">
+                Sevice: 
+            </div>
+            <div class="p-col-12 p-md-8 p-lg-8">
+                <p-selectButton [options]="timeFactors"
+                    [(ngModel)]="selectedTimeFactor" optionLabel="label">
+                </p-selectButton>
+            </div>
+        </div>
+
+
+        
+        <!-- <div class="ui-g-4"><label for="vin">Vin</label></div>
+        <div class="ui-g-8"><input pInputText id="vin" [(ngModel)]="car.vin" /></div>
+        
+        <div class="ui-g-4"><label for="year">Year</label></div>
+        <div class="ui-g-8"><input pInputText id="year" [(ngModel)]="car.year" /></div>
+        
+        <div class="ui-g-4"><label for="brand">Brand</label></div>
+        <div class="ui-g-8"><input pInputText id="brand" [(ngModel)]="car.brand" /></div>
+        
+        <div class="ui-g-4"><label for="color">Color</label></div>
+        <div class="ui-g-8"><input pInputText id="color" [(ngModel)]="car.color" /></div> -->
+    </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button type="button" pButton icon="pi pi-check" (click)="buy()" label="BUY"></button>
+        </div>
+    </p-footer>
+</p-dialog>

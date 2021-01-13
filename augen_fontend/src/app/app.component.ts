@@ -14,7 +14,7 @@ export class PrimeCar implements Car {
 })
 export class AppComponent implements OnInit {
 
-    title = 'Augen Books';
+    title = 'Augen Books Store';
     displayDialog: boolean;
 
     car: Car = new PrimeCar();

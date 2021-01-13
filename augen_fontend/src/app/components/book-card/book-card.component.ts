@@ -8,15 +8,14 @@ import { BookModel } from 'src/app/domain/BookModel';
 })
 export class BookCardComponent implements OnInit {
 
+  @Input() isDetail: boolean = false;
   @Input() book: BookModel;
   @Output() outputData: EventEmitter<any> = new EventEmitter();
-  // @Input() counter: number = 0;
-  // @Output() counterChange = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log('book info: ', this.book);
+    console.log(' isDetail: ' + this.isDetail + ', book info: ', this.book);
     
   }
 

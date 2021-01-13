@@ -7,7 +7,7 @@ import { tap } from 'rxjs/operators';
     providedIn: 'root'
 })
 
-export class BookService {
+export class BuyService {
 
     serverUrl: string = 'http://localhost:8089/';
 
@@ -19,8 +19,8 @@ export class BookService {
 
     constructor(private http: HttpClient) {}
 
-    getBooks(): Observable<any> {
-        const url = this.serverUrl + 'books';
+    getDeliveryServices(): Observable<any> {
+        const url = this.serverUrl + 'getDeliveryServices';
         return this.http.get<any>(url, this.options).pipe(
             tap(
                 data => {
@@ -33,9 +33,9 @@ export class BookService {
         );
     }
 
-    getBook(id: string): Observable<any> {
-        const url = 'book?id=' + id;
-        return this.http.get<any>(url, this.options).pipe(
+    confirmBuying(context): Observable<any> {
+        const url = 'confirm';
+        return this.http.post<any>(url, context, this.options).pipe(
             tap(
                 data => {
                     // console.log(data);

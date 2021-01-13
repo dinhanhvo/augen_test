@@ -14,6 +14,7 @@ export class BookModel {
     author: string[];
     publishedDate: Date;
     imageLinks: ImageLink;
+    description: string;
 
     constructor() {
         this.imageLinks = new ImageLink();

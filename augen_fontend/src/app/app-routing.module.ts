@@ -5,8 +5,10 @@ import { HomeComponent } from './pages/home/home.component';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'buy', component: BuyConfirmComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  // { path: 'buy', component: BuyConfirmComponent },
+  { path: 'confirm/:id', component: BuyConfirmComponent },
 ];
 
 @NgModule({
