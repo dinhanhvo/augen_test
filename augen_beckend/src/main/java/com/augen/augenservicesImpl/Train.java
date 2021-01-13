@@ -10,6 +10,7 @@ public class Train extends DeliveryServiceImpl {
     public Train() {
         this.setBaseCost(CommonConstant.TRAIN_COST);
         this.setDeliveryType(CommonConstant.TRAIN_TYPE);
+        this.setDeliveryName(CommonConstant.TRAIN_NAME);
     }
 
     public String getTrainNo() {

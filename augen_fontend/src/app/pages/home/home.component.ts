@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SelectItem } from 'primeng-lts/api';
 import { BookModel } from 'src/app/domain/BookModel';
+import { DeliveryServiceOptionModel } from 'src/app/domain/DeliveryServiceOptionModel';
 import { BookService } from 'src/app/services/BookService';
+import { BuyService } from 'src/app/services/BuyService';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +20,14 @@ export class HomeComponent implements OnInit {
   timeFactors: SelectItem[] = [];
   selectedTimeFactor: SelectItem;
 
-  constructor(private bookService: BookService,
+  deliveryservices: DeliveryServiceOptionModel[] = [];
+  selectedDeliveryService: DeliveryServiceOptionModel;
+
+  cost: number = 0;
+
+  constructor(
+    private bookService: BookService,
+    private buyService: BuyService,
     private router: Router) {
   }
 
@@ -48,11 +57,28 @@ export class HomeComponent implements OnInit {
   }
 
   initFormData() {
-    this.timeFactors = [
-      { label: '68', value:1},
-      { label: '9', value:2},
-      {label: 'other', value:3}
-    ];
+    this.timeFactors = [];
+    this.deliveryservices = [];
+    this.selectedTimeFactor = this.timeFactors[0];
+    this.selectedDeliveryService = this.deliveryservices[0];
+
+    this.buyService.getFactors().subscribe(
+      res => {
+        
+        this.timeFactors = res.data;
+      },
+      err => {
+        console.log('get factors error', err);
+      }
+    )
+    this.buyService.getDeliveryServices().subscribe(
+      res => {
+        this.deliveryservices = res.data;
+      },
+      err => {
+        console.log('get deliveryservices error', err);
+      }
+    )
   }
 
   onBookSelected(event) {
@@ -65,5 +91,30 @@ export class HomeComponent implements OnInit {
     this.displayDialog = false;
     console.log('routing to confirm page: ', this.selectedBook.id);
     this.router.navigate(['confirm',  this.selectedBook.id]);
+  }
+
+  changeFactor() {
+    this.getAdjustCost();
+  }
+  
+  changeDeliveryService() {
+    this.getAdjustCost();
+  }
+  
+  getAdjustCost() {
+    console.log('---getAdjustCost----selectedTimeFactor: ', this.selectedTimeFactor);
+    console.log('---getAdjustCost----selectedDeliveryService: ', this.selectedDeliveryService);
+    const context = {
+      timeFactor: this.selectedTimeFactor,
+      deliveryService: this.selectedDeliveryService
+    }
+    this.buyService.getAdjustCost(context).subscribe(
+      res => {
+        this.cost = res.data;
+      },
+      err => {
+        console.log('get getAdjustCost error', err);
+      }
+    )
   }
 }

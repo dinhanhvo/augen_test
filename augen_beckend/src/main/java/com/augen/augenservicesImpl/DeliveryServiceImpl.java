@@ -8,6 +8,7 @@ import com.augen.model.DeliveryFactor;
 public class DeliveryServiceImpl implements IDeliveryService {
 
     protected byte deliveryType;
+    protected String deliveryName;
     protected double baseCost;
     protected DeliveryFactor deliveryFactor;
     protected Date dateArrival;
@@ -48,5 +49,13 @@ public class DeliveryServiceImpl implements IDeliveryService {
     public void setDeliveryType(byte deliveryType) {
         this.deliveryType = deliveryType;
     }
+
+	public String getDeliveryName() {
+		return deliveryName;
+	}
+
+	public void setDeliveryName(String deliveryName) {
+		this.deliveryName = deliveryName;
+	}
     
 }

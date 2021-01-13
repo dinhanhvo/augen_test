@@ -9,4 +9,8 @@ public class CommonConstant {
     public static final byte MOTOBIKE_TYPE = 1;
     public static final byte TRAIN_TYPE = 2;
     public static final byte AIRCRAFT_TYPE = 3;
+    
+    public static final String MOTOBIKE_NAME = "Motorbike";
+    public static final String TRAIN_NAME = "Train";
+    public static final String AIRCRAFT_NAME = "Aircraft";
 }

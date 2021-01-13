@@ -19,9 +19,37 @@ export class BuyService {
 
     constructor(private http: HttpClient) {}
 
-    getDeliveryServices(): Observable<any> {
-        const url = this.serverUrl + 'getDeliveryServices';
+    getFactors(): Observable<any> {
+        const url = this.serverUrl + 'timefactors';
         return this.http.get<any>(url, this.options).pipe(
+            tap(
+                data => {
+                    // console.log(data);
+                },
+                error => {
+                    console.log('book-service: error', error);
+                }
+            )
+        );
+    }
+
+    getDeliveryServices(): Observable<any> {
+        const url = this.serverUrl + 'deliveryservices';
+        return this.http.get<any>(url, this.options).pipe(
+            tap(
+                data => {
+                    // console.log(data);
+                },
+                error => {
+                    console.log('book-service: error', error);
+                }
+            )
+        );
+    }
+
+    getAdjustCost(context: any): Observable<any> {
+        const url = this.serverUrl + 'adjustcost';
+        return this.http.post<any>(url, context, this.options).pipe(
             tap(
                 data => {
                     // console.log(data);

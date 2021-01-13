@@ -25,56 +25,64 @@ Total items: {{books.length}}
             </app-book-card>
             </div>
             <div class="p-col-12 p-md-6 p-lg-6 ">
-                <p>
+                <p-scrollPanel [style]="{height: '300px'}">
                     {{selectedBook.description}}
-                </p>
+                </p-scrollPanel>
             </div>
-            <!-- <div class="p-col-12 p-md-2 p-lg-2"></div> -->
         </div>
+        <br>
         <div class="p-grid card">
-            <div class="p-col-12 p-md-4 p-lg-4">
+            <div class="p-col-12 p-md-4 p-lg-4 form_label">
+                Sevice: 
+            </div>
+            <div class="p-col-12 p-md-8 p-lg-8">
+                <p-selectButton [options]="deliveryservices"
+                    [(ngModel)]="selectedDeliveryService"
+                     optionLabel="label"
+                     (onChange)="changeDeliveryService()"
+                     >
+                </p-selectButton>
+            </div>
+        </div>
+        <br>
+        <div class="p-grid card ">
+            <div class="p-col-12 p-md-4 p-lg-4 form_label">
                 Time Delivery: 
             </div>
             <div class="p-col-12 p-md-8 p-lg-8">
-                <!-- <p-dropdown [options]="timeFactors" 
-                    placeholder="Choose a time"
+                <p-dropdown [options]="timeFactors"
+                    (onChange)="changeFactor()" 
                     [(ngModel)]="selectedTimeFactor">
-                </p-dropdown> -->
-                <div *ngFor="let factor of timeFactors" class="p-field-checkbox">
+                </p-dropdown>
+                <!-- <div *ngFor="let factor of timeFactors" class="p-field-checkbox">
                     <p-radioButton inpudIt="factor.value" 
                         [value]="factor" 
                         [(ngModel)]="selectedCategory"
                         >
                     </p-radioButton>
                     <label [for]="factor.label">{{factor.label}}</label>
-                </div>
+                </div> -->
                 
             </div>
         </div>
+        <br>
         <div class="p-grid card">
-            <div class="p-col-12 p-md-4 p-lg-4">
-                Sevice: 
+            <div class="p-col-12 p-md-4 p-lg-4 form_label">
+                Cost: 
             </div>
             <div class="p-col-12 p-md-8 p-lg-8">
-                <p-selectButton [options]="timeFactors"
-                    [(ngModel)]="selectedTimeFactor" optionLabel="label">
-                </p-selectButton>
+                {{cost}}
             </div>
         </div>
-
-
-        
-        <!-- <div class="ui-g-4"><label for="vin">Vin</label></div>
-        <div class="ui-g-8"><input pInputText id="vin" [(ngModel)]="car.vin" /></div>
-        
-        <div class="ui-g-4"><label for="year">Year</label></div>
-        <div class="ui-g-8"><input pInputText id="year" [(ngModel)]="car.year" /></div>
-        
-        <div class="ui-g-4"><label for="brand">Brand</label></div>
-        <div class="ui-g-8"><input pInputText id="brand" [(ngModel)]="car.brand" /></div>
-        
-        <div class="ui-g-4"><label for="color">Color</label></div>
-        <div class="ui-g-8"><input pInputText id="color" [(ngModel)]="car.color" /></div> -->
+        <br>
+        <div class="p-grid card">
+            <div class="p-col-12 p-md-4 p-lg-4 form_label">
+            </div>
+            <div class="p-col-12 p-md-8 p-lg-8">
+                (<b style="color: red">*</b>) Cost is based on delivery service and time to delivery
+            </div>
+        </div>
+        <br>
     </div>
     <p-footer>
         <div class="ui-dialog-buttonpane ui-helper-clearfix">

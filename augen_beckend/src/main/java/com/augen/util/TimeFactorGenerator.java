@@ -1,14 +1,15 @@
 package com.augen.util;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.augen.model.TimeFactor;
 
 public class TimeFactorGenerator {
 
-	private static List<TimeFactor> timeDeliveryFactors = new ArrayList<>();
-	public static void  createTimeFactorData() {
+	/*
+	 * Fake data
+	 */
+	public static void  createTimeFactorData(List<TimeFactor> timeDeliveryFactors) {
 		TimeFactor tdf1 = new TimeFactor(1, "June to Aug");
 		TimeFactor tdf2 = new TimeFactor(2, "Sep");
 		TimeFactor tdf3 = new TimeFactor(3, "Other months");
@@ -17,7 +18,7 @@ public class TimeFactorGenerator {
 		timeDeliveryFactors.add(tdf3);
     };
     
-    public static List<TimeFactor> getTimeFactorData() {
-    	return TimeFactorGenerator.timeDeliveryFactors;
-    }
+//    public static List<TimeFactor> getTimeFactorData() {
+//    	return TimeFactorGenerator.timeDeliveryFactors;
+//    }
 }

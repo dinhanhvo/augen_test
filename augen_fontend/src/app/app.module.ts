@@ -13,6 +13,7 @@ import { CardModule } from 'primeng/card';
 import { DropdownModule } from 'primeng-lts/dropdown';
 import { SelectButtonModule } from 'primeng-lts/selectbutton';
 import { RadioButtonModule } from 'primeng-lts/radiobutton';
+import { ScrollPanelModule } from 'primeng-lts/scrollpanel';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -39,7 +40,8 @@ import { BookCardComponent } from './components/book-card/book-card.component';
         CardModule,
         DropdownModule,
         SelectButtonModule,
-        RadioButtonModule
+        RadioButtonModule,
+        ScrollPanelModule
     ],
     providers: [],
     bootstrap: [AppComponent]

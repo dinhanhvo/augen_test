@@ -13,6 +13,7 @@ public class MotoBike extends DeliveryServiceImpl {
     public MotoBike() {
         this.setBaseCost(CommonConstant.MOTOBIKE_COST);
         this.setDeliveryType(CommonConstant.MOTOBIKE_TYPE);
+        this.setDeliveryName(CommonConstant.MOTOBIKE_NAME);
     }
 
     public String getDriverName() {

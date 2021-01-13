@@ -18,3 +18,7 @@
     max-height: 600px;
     background-color: #1A2744;
 }
+
+.form_label {
+    text-align: right
+}

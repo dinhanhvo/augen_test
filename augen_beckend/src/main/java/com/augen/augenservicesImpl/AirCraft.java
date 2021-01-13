@@ -10,6 +10,7 @@ public class AirCraft extends DeliveryServiceImpl {
     public AirCraft() {
         this.setBaseCost(CommonConstant.AIRCRAFT_COST);
         this.setDeliveryType(CommonConstant.AIRCRAFT_TYPE);
+        this.setDeliveryName(CommonConstant.AIRCRAFT_NAME);
     }
 
     public String getFlightNo() {

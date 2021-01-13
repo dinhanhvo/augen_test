@@ -15,6 +15,9 @@ public class DeliveryInfoGenerator {
     private static List<String[]> trainDeliveryInfo = new ArrayList<>();
     private static List<String[]> airDeliveryInfo = new ArrayList<>();
     
+	/*
+	 * Fake data to random Delivery Info
+	 */
     public static void  createInfoData() {
         for(int i = 0; i< DeliveryInfoGenerator.size; i++) {
             String[] ms = new String[] {"driverName" + i, "00"+i};
@@ -28,6 +31,9 @@ public class DeliveryInfoGenerator {
         }
     };
     
+	/*
+	 * Fake data
+	 */
     public static void generateInfo(DeliveryServiceImpl deliveryServiceImpl) {
         Random generator = new Random(DeliveryInfoGenerator.size);
         int i = generator.nextInt();
