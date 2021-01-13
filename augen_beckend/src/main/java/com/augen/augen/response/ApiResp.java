@@ -4,9 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 public class ApiResp {
-    
     private Object data;
-    private List<RestError> errors;
+    private String errors;
     
     public Object getData() {
         return data;
@@ -14,11 +13,10 @@ public class ApiResp {
     public void setData(Object data) {
         this.data = data;
     }
-    public List<RestError> getErrors() {
+    public String getErrors() {
         return errors;
     }
-    public void setErrors(List<RestError> errors) {
+    public void setErrors(String errors) {
         this.errors = errors;
     }
-    
 }
