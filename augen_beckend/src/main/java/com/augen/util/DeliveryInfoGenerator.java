@@ -14,8 +14,8 @@ public class DeliveryInfoGenerator {
     private static List<String[]> motoDeliveryInfo = new ArrayList<>();
     private static List<String[]> trainDeliveryInfo = new ArrayList<>();
     private static List<String[]> airDeliveryInfo = new ArrayList<>();
+    
     public static void  createInfoData() {
-        
         for(int i = 0; i< DeliveryInfoGenerator.size; i++) {
             String[] ms = new String[] {"driverName" + i, "00"+i};
             DeliveryInfoGenerator.motoDeliveryInfo.add(ms);

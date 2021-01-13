@@ -47,7 +47,7 @@ public class DataAgen {
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-            apiResp.setErrors("Can not get data");
+            apiResp.setErrors("Can not get data, please check your Internet connection");
         } finally {
             sc.close();
         }
