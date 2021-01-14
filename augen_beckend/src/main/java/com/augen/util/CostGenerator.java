@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.augen.augenservicesImpl.DeliveryServiceImpl;
+import com.augen.augenservicesImpl.DeliveryService;
 import com.augen.model.TimeFactor;
 
 public class CostGenerator {
@@ -12,7 +12,7 @@ public class CostGenerator {
 	private static final double[][] ratios = {{0.5, 1.5, 1}, {0.8, 1.8, 1}, {0.8, 2, 1}}; 
 	
 	public static void getCostData(Map<CostKey, Double> costMap) {
-		List<DeliveryServiceImpl> listDelivery = new ArrayList<DeliveryServiceImpl>();
+		List<DeliveryService> listDelivery = new ArrayList<DeliveryService>();
 		DeliveryGenerator.getDeliveryServiceData(listDelivery);
 		
 		List<TimeFactor> listTimeFactor = TimeFactorGenerator.getTimeFactorData();

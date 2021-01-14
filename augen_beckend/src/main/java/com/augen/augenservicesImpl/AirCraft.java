@@ -2,7 +2,7 @@ package com.augen.augenservicesImpl;
 
 import com.augen.constant.CommonConstant;
 
-public class AirCraft extends DeliveryServiceImpl {
+public class AirCraft extends DeliveryService {
 
     private String flightNo;
     private String gateNumber;

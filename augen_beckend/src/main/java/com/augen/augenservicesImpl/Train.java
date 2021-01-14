@@ -2,7 +2,7 @@ package com.augen.augenservicesImpl;
 
 import com.augen.constant.CommonConstant;
 
-public class Train extends DeliveryServiceImpl {
+public class Train extends DeliveryService {
 
     private String trainNo;
     private String stationName;

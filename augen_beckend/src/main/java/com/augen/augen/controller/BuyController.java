@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.augen.augen.response.ApiResp;
-import com.augen.augenservicesImpl.DeliveryServiceImpl;
+import com.augen.augenservicesImpl.DeliveryService;
 import com.augen.dto.DeliveryServiceOptionModel;
 import com.augen.model.TimeFactor;
 import com.augen.util.CostGenerator;
@@ -56,7 +56,7 @@ public class BuyController {
         ApiResp apiResp = new ApiResp();
 
         // get Delivery Service data
-        List<DeliveryServiceImpl> listDelivery = new ArrayList<DeliveryServiceImpl>();
+        List<DeliveryService> listDelivery = new ArrayList<DeliveryService>();
         DeliveryGenerator.getDeliveryServiceData(listDelivery);
         
         // convert BE delivery service model to FE delivery service model

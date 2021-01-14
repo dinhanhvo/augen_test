@@ -4,7 +4,7 @@ import java.util.Date;
 
 import com.augen.constant.CommonConstant;
 
-public class MotoBike extends DeliveryServiceImpl {
+public class MotoBike extends DeliveryService {
 
     private String driverName;
     private String mobile;

@@ -2,10 +2,7 @@ package com.augen.augenservicesImpl;
 
 import java.util.Date;
 
-import com.augen.augenservices.IDeliveryService;
-import com.augen.model.DeliveryFactor;
-
-public class DeliveryServiceImpl {
+public class DeliveryService {
 
     protected byte deliveryType;// 1, 2, 3
     protected String deliveryName; // Motobike, Train, Aircraft

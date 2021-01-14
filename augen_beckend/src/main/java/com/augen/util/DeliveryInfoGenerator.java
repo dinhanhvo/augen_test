@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Random;
 
 import com.augen.augenservicesImpl.AirCraft;
-import com.augen.augenservicesImpl.DeliveryServiceImpl;
+import com.augen.augenservicesImpl.DeliveryService;
 import com.augen.augenservicesImpl.MotoBike;
 import com.augen.augenservicesImpl.Train;
 import com.augen.constant.CommonConstant;
@@ -41,7 +41,7 @@ public class DeliveryInfoGenerator {
 	/*
 	 * Fake data
 	 */
-    public static void generateInfo(DeliveryServiceImpl deliveryServiceImpl) {
+    public static void generateInfo(DeliveryService deliveryServiceImpl) {
         Random generator = new Random(DeliveryInfoGenerator.size);
         int i = generator.nextInt();
         if (deliveryServiceImpl instanceof MotoBike) {
@@ -59,14 +59,14 @@ public class DeliveryInfoGenerator {
         }
     }
     
-    public static DeliveryServiceImpl getDeliveryInfo(int deliveryType) {
+    public static DeliveryService getDeliveryInfo(int deliveryType) {
     	// create data if not existed yet
     	if (DeliveryInfoGenerator.motoDeliveryInfo.size() == 0) {
     		DeliveryInfoGenerator.createInfoData();
     	}
     	// get random delivery info
     	int i = (int) Math.round(Math.random() * 9);
-    	DeliveryServiceImpl deliveryServiceImpl = null;
+    	DeliveryService deliveryServiceImpl = null;
         if (deliveryType == CommonConstant.MOTOBIKE_TYPE) {
         	deliveryServiceImpl = new MotoBike();
         	String[] ms = DeliveryInfoGenerator.motoDeliveryInfo.get(i);
