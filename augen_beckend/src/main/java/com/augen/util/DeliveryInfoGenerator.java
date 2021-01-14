@@ -1,7 +1,9 @@
 package com.augen.util;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import com.augen.augenservicesImpl.AirCraft;
@@ -11,12 +13,14 @@ import com.augen.augenservicesImpl.Train;
 import com.augen.constant.CommonConstant;
 
 public class DeliveryInfoGenerator {
-    private static int size = 10;
-    private static List<String[]> motoDeliveryInfo = new ArrayList<>();
-    private static List<String[]> trainDeliveryInfo = new ArrayList<>();
-    private static List<String[]> airDeliveryInfo = new ArrayList<>();
+	public static int size = 10;
+    public static List<String[]> motoDeliveryInfo = new ArrayList<>();
+    public static List<String[]> trainDeliveryInfo = new ArrayList<>();
+    public static List<String[]> airDeliveryInfo = new ArrayList<>();
     
-
+    // fake database, store confirmation info into
+    public static Map<Long, String> listConfirmedString = new HashMap<Long, String>();
+    private static long idDeliveryInfo = 0;
     
 	/*
 	 * Fake data to random Delivery Info
@@ -83,7 +87,7 @@ public class DeliveryInfoGenerator {
         return deliveryServiceImpl;
     }
     
-    public static String getDeliveryInfoString(int deliveryType) {
+    public static String getDeliveryInfoString(int deliveryType, String stime, double cost) {
     	// create data if not existed yet
     	if (DeliveryInfoGenerator.motoDeliveryInfo.size() == 0) {
     		DeliveryInfoGenerator.createInfoData();
@@ -94,23 +98,34 @@ public class DeliveryInfoGenerator {
     	StringBuffer info = new StringBuffer();
         if (deliveryType == CommonConstant.MOTOBIKE_TYPE) {
         	String[] ms = DeliveryInfoGenerator.motoDeliveryInfo.get(i);
-        	info.append("Driver Name: ")
-        		.append(ms[0])
-        		.append(" | Mobile: ")
-        		.append(ms[1]);
+        	info.append("Driver Name: ").append(ms[0])
+        		.append(" | Mobile: ").append(ms[1])
+        		.append(" | Delivery date:").append(stime)
+        		.append(" | Cost: $").append(cost);
         } else if (deliveryType == CommonConstant.TRAIN_TYPE) {
         	String[] ms = DeliveryInfoGenerator.trainDeliveryInfo.get(i);
-        	info.append("Train no: ")
-	    		.append(ms[0])
-	    		.append(" | Station of arriva: ")
-	    		.append(ms[1]);
+        	info.append("Train no: ").append(ms[0])
+	    		.append(" | Station of arriva: ").append(ms[1])
+	    		.append(" | Date of arrival:").append(stime)
+        		.append(" | Cost: $").append(cost);;
         } else if (deliveryType == CommonConstant.AIRCRAFT_TYPE) {
 			String[] ms = DeliveryInfoGenerator.airDeliveryInfo.get(i);
-			info.append("Flight no: ")
-	    		.append(ms[0])
-	    		.append(" | Gate of arrival: ")
-	    		.append(ms[1]);
+			info.append("Flight no: ").append(ms[0])
+	    		.append(" | Gate of arrival: ").append(ms[1])
+	    		.append(" | Date of arrival:").append(stime)
+        		.append(" | Cost: $").append(cost);;
         }
         return info.toString();
+    }
+    
+    public static String getDeliveryInfoStringById(Long id) {
+    	return DeliveryInfoGenerator.listConfirmedString.get(id);
+    }
+    
+    public static long saveDeliveryConfirmedInfo(String deliveryInfo) {
+    	long id = idDeliveryInfo;
+    	DeliveryInfoGenerator.listConfirmedString.put(idDeliveryInfo, deliveryInfo);
+    	idDeliveryInfo++;
+    	return id;
     }
 }

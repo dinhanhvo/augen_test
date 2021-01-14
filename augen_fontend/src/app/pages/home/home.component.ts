@@ -93,11 +93,11 @@ export class HomeComponent implements OnInit {
 
   buy() {
     this.displayDialog = false;
-    console.log('routing to confirm page: ', this.selectedBook.id);
     this.buyService.confirmBuying(this.buyConfirmKeys).subscribe(
       res => {
-        this.buyConfirmContext = res.data;
-        this.router.navigate(['confirm',  this.selectedBook.id]);
+        // this.buyConfirmContext = res.data;
+        const idDeliveryInfo = res.data;
+        this.router.navigate(['confirm',  idDeliveryInfo]);
       },
       err => {
         console.log('get getAdjustCost error', err);

@@ -19,6 +19,20 @@ export class BuyService {
 
     constructor(private http: HttpClient) {}
 
+    getCofirmedDeliveryInfo(id): Observable<any> {
+        const url = this.serverUrl + 'deliveryinfo?id=' + id;
+        return this.http.get<any>(url, this.options).pipe(
+            tap(
+                data => {
+                    // console.log(data);
+                },
+                error => {
+                    console.log('book-service: error', error);
+                }
+            )
+        );
+    }
+
     getFactors(): Observable<any> {
         const url = this.serverUrl + 'timefactors';
         return this.http.get<any>(url, this.options).pipe(

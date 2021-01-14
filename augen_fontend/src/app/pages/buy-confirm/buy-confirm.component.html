@@ -1,4 +1,5 @@
-<p>buy-confirm works!</p>
-<div *ngIf="confirmedBook">
-    You have bought the {{confirmedBook.title}}
+<div *ngIf="buyConfirmContext">
+    Delivery Info: {{buyConfirmContext}}
 </div>
+<br>
+<button type="button" pButton icon="pi pi-check" (click)="buyContinue()" label="Continue To Buy"></button>

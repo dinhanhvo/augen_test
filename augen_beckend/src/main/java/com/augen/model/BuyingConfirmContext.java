@@ -3,6 +3,7 @@ package com.augen.model;
 import com.augen.augenservicesImpl.DeliveryServiceImpl;
 
 public class BuyingConfirmContext {
+	int id;
     DeliveryServiceImpl delyDeliveryService;
     TimeFactor timeFactor;
     double cost;

@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.augen.augen.response.ApiResp;
 import com.augen.augenservicesImpl.DeliveryServiceImpl;
 import com.augen.dto.DeliveryServiceOptionModel;
-import com.augen.model.BuyingConfirmContext;
 import com.augen.model.TimeFactor;
 import com.augen.util.CostGenerator;
 import com.augen.util.CostKey;
@@ -29,6 +29,17 @@ import com.augen.util.TimeFactorGenerator;
 @CrossOrigin(origins = "http://localhost:4300")
 public class BuyController {
 
+	@GetMapping("/deliveryinfo")
+    public ResponseEntity<ApiResp> getDeliveryInfo(@RequestParam String id) {
+        ApiResp apiResp = new ApiResp();
+        
+        Long idInfo = new Long(id);
+        
+        String info = DeliveryInfoGenerator.getDeliveryInfoStringById(idInfo);
+		apiResp.setData(info);
+        return new ResponseEntity<ApiResp>(apiResp, HttpStatus.OK);
+    }
+	
     @GetMapping("/timefactors")
     public ResponseEntity<ApiResp> getTimeFactors() {
         ApiResp apiResp = new ApiResp();
@@ -87,13 +98,22 @@ public class BuyController {
     @PostMapping("/confirm")
     public ResponseEntity<ApiResp> confirmBuying(@RequestBody CostKey confirmKeysCost) {
         ApiResp apiResp = new ApiResp();
-        DeliveryServiceImpl deliveryService = DeliveryInfoGenerator.getDeliveryInfo(confirmKeysCost.getDeliveryServiceType());
+        // use this section code if need more detail context
+//        DeliveryServiceImpl deliveryService = DeliveryInfoGenerator.getDeliveryInfo(confirmKeysCost.getDeliveryServiceType());
         TimeFactor timeFactor = TimeFactorGenerator.getTimeFactor(confirmKeysCost.getTimeFactorType());
+//        // create buying confirmation
+//        BuyingConfirmContext buyingConfirmContext = new BuyingConfirmContext(deliveryService, timeFactor, confirmKeysCost.getCost());
+//        apiResp.setData(buyingConfirmContext);
         
-        // create buying confirmation
-        BuyingConfirmContext buyingConfirmContext = new BuyingConfirmContext(deliveryService, timeFactor, confirmKeysCost.getCost());
-        
-        apiResp.setData(buyingConfirmContext);
+        // just generate String info
+        String deliInfo = DeliveryInfoGenerator.getDeliveryInfoString(confirmKeysCost.getDeliveryServiceType(), 
+				timeFactor.getLabel(),
+				confirmKeysCost.getCost()
+			);
+        // fake save to database
+        long id = DeliveryInfoGenerator.saveDeliveryConfirmedInfo(deliInfo);
+        // just return id of save delivery info
+        apiResp.setData(id);
         return new ResponseEntity<ApiResp>(apiResp, HttpStatus.OK);
     }
     
