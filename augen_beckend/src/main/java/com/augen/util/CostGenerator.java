@@ -15,8 +15,7 @@ public class CostGenerator {
 		List<DeliveryServiceImpl> listDelivery = new ArrayList<DeliveryServiceImpl>();
 		DeliveryGenerator.getDeliveryServiceData(listDelivery);
 		
-		List<TimeFactor> listTimeFactor = new ArrayList<TimeFactor>();
-		TimeFactorGenerator.getTimeFactorData(listTimeFactor);
+		List<TimeFactor> listTimeFactor = TimeFactorGenerator.getTimeFactorData();
 		
 		for(int i = 0; i < 3; i++) {
 			int dtype = listDelivery.get(i).getDeliveryType();

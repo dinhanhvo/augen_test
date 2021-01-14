@@ -62,7 +62,7 @@ export class BuyService {
     }
 
     confirmBuying(context): Observable<any> {
-        const url = 'confirm';
+        const url = this.serverUrl + 'confirm';
         return this.http.post<any>(url, context, this.options).pipe(
             tap(
                 data => {

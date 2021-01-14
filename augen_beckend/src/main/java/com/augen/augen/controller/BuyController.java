@@ -1,7 +1,6 @@
 package com.augen.augen.controller;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,11 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.augen.augen.response.ApiResp;
-import com.augen.augenservices.IDeliveryService;
 import com.augen.augenservicesImpl.DeliveryServiceImpl;
 import com.augen.dto.DeliveryServiceOptionModel;
-import com.augen.dto.SelectItemModel;
-import com.augen.model.AdjustCostContext;
 import com.augen.model.BuyingConfirmContext;
 import com.augen.model.TimeFactor;
 import com.augen.util.CostGenerator;
@@ -38,14 +34,7 @@ public class BuyController {
         ApiResp apiResp = new ApiResp();
         
         // get Delivery Service data
-        List<TimeFactor> listTimeFactor = new ArrayList<TimeFactor>();
-		TimeFactorGenerator.getTimeFactorData(listTimeFactor);
-		
-		// convert list factor to time delivery option
-//		List<SelectItemModel> sms = listDelivery.stream().map(factor -> {
-//			SelectItemModel sm = new SelectItemModel(factor.getLabel());
-//			return sm;
-//		}).collect(Collectors.toList());
+        List<TimeFactor> listTimeFactor = TimeFactorGenerator.getTimeFactorData();
 		
 		apiResp.setData(listTimeFactor);
         return new ResponseEntity<ApiResp>(apiResp, HttpStatus.OK);
@@ -62,12 +51,12 @@ public class BuyController {
         // convert BE delivery service model to FE delivery service model
         List<DeliveryServiceOptionModel> listDSOM = listDelivery.stream().map(item -> {
         	DeliveryServiceOptionModel md = new DeliveryServiceOptionModel( 
-        			item.getDeliveryName() + "| $" + item.getBaseCost(), 
+        			item.getDeliveryName() + " | $" + item.getBaseCost(), 
         			item.getBaseCost(),
         			item.getDeliveryType()
 			); 
         	return md;
-        }).collect(Collectors.toList());;
+        }).collect(Collectors.toList());
         apiResp.setData(listDSOM);
         
         return new ResponseEntity<ApiResp>(apiResp, HttpStatus.OK);
@@ -85,24 +74,26 @@ public class BuyController {
 			if(ck.getDeliveryServiceType() == context.getDeliveryServiceType() &&
 					ck.getTimeFactorType() == context.getTimeFactorType()) {
 				cost = costmap.get(ck).doubleValue();
+				context.setCost(cost * context.getCost());
 				break;
 			}
 		}
          
         System.out.println("BuyController.getAdjustCost()=======ratio =" + cost);
-		apiResp.setData(cost * context.getCost());
+		apiResp.setData(context);
         return new ResponseEntity<ApiResp>(apiResp, HttpStatus.OK);
     }
     
     @PostMapping("/confirm")
-    public ResponseEntity<ApiResp> confirmBuying(@RequestBody BuyingConfirmContext buyingConfirmContext) {
+    public ResponseEntity<ApiResp> confirmBuying(@RequestBody CostKey confirmKeysCost) {
         ApiResp apiResp = new ApiResp();
-        DeliveryServiceImpl deliveryServiceImpl = buyingConfirmContext.getDelyDeliveryService();
-        DeliveryInfoGenerator.generateInfo(deliveryServiceImpl);
+        DeliveryServiceImpl deliveryService = DeliveryInfoGenerator.getDeliveryInfo(confirmKeysCost.getDeliveryServiceType());
+        TimeFactor timeFactor = TimeFactorGenerator.getTimeFactor(confirmKeysCost.getTimeFactorType());
         
-        if (apiResp.getErrors() != null) {
-            return new ResponseEntity<ApiResp>(apiResp, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        // create buying confirmation
+        BuyingConfirmContext buyingConfirmContext = new BuyingConfirmContext(deliveryService, timeFactor, confirmKeysCost.getCost());
+        
+        apiResp.setData(buyingConfirmContext);
         return new ResponseEntity<ApiResp>(apiResp, HttpStatus.OK);
     }
     

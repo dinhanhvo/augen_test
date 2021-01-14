@@ -5,6 +5,7 @@ import { BookModel } from 'src/app/domain/BookModel';
 import { DeliveryServiceOptionModel } from 'src/app/domain/DeliveryServiceOptionModel';
 import { TimeFactorOptionModel } from 'src/app/domain/TimeFactorOptionModel';
 import { BookService } from 'src/app/services/BookService';
+import { BuyingConfirmKeys, BuyingConfirmKeysContext } from 'src/app/services/BuyingConfirmKeysContext';
 import { BuyService } from 'src/app/services/BuyService';
 
 @Component({
@@ -25,6 +26,8 @@ export class HomeComponent implements OnInit {
   selectedDeliveryService: DeliveryServiceOptionModel;
 
   cost: number = 0;
+  buyConfirmKeys: BuyingConfirmKeys[] = []; //BuyingConfirmKeys;
+  buyConfirmContext: BuyingConfirmKeysContext;
 
   constructor(
     private bookService: BookService,
@@ -91,7 +94,16 @@ export class HomeComponent implements OnInit {
   buy() {
     this.displayDialog = false;
     console.log('routing to confirm page: ', this.selectedBook.id);
-    this.router.navigate(['confirm',  this.selectedBook.id]);
+    this.buyService.confirmBuying(this.buyConfirmKeys).subscribe(
+      res => {
+        this.buyConfirmContext = res.data;
+        this.router.navigate(['confirm',  this.selectedBook.id]);
+      },
+      err => {
+        console.log('get getAdjustCost error', err);
+      }
+    );
+    
   }
 
   changeFactor() {
@@ -106,18 +118,20 @@ export class HomeComponent implements OnInit {
   getAdjustCost() {
     console.log('---getAdjustCost----selectedTimeFactor: ', this.selectedTimeFactor);
     console.log('---getAdjustCost----selectedDeliveryService: ', this.selectedDeliveryService);
-    const costKey = {
+    const costKey: BuyingConfirmKeys =  {
       deliveryServiceType: this.selectedDeliveryService.type,
       timeFactorType: this.selectedTimeFactor.type,
       cost: this.selectedDeliveryService.cost
     }
     this.buyService.getAdjustCost(costKey).subscribe(
       res => {
-        this.cost = res.data;
+        this.buyConfirmKeys = res.data;
       },
       err => {
         console.log('get getAdjustCost error', err);
       }
     )
   }
+
+
 }

@@ -5,12 +5,11 @@ import java.util.Date;
 import com.augen.augenservices.IDeliveryService;
 import com.augen.model.DeliveryFactor;
 
-public class DeliveryServiceImpl implements IDeliveryService {
+public class DeliveryServiceImpl {
 
     protected byte deliveryType;// 1, 2, 3
     protected String deliveryName; // Motobike, Train, Aircraft
     protected double baseCost; // 5, 10, 20
-    protected DeliveryFactor deliveryFactor;
     protected Date dateArrival;
     
     public double getBaseCost() {
@@ -19,19 +18,6 @@ public class DeliveryServiceImpl implements IDeliveryService {
 
     public void setBaseCost(double baseCost) {
         this.baseCost = baseCost;
-    }
-
-    public DeliveryFactor getDeliveryFactor() {
-        return deliveryFactor;
-    }
-
-    public void setDeliveryFactor(DeliveryFactor deliveryFactor) {
-        this.deliveryFactor = deliveryFactor;
-    }
-
-    public double getCost() {
-        double cost = this.getBaseCost() * this.getDeliveryFactor().getRatio();
-        return cost;
     }
 
     public Date getDateArrival() {
