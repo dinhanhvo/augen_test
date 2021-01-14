@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { SelectItem } from 'primeng-lts/api';
 import { BookModel } from 'src/app/domain/BookModel';
 import { DeliveryServiceOptionModel } from 'src/app/domain/DeliveryServiceOptionModel';
+import { TimeFactorOptionModel } from 'src/app/domain/TimeFactorOptionModel';
 import { BookService } from 'src/app/services/BookService';
 import { BuyService } from 'src/app/services/BuyService';
 
@@ -17,8 +18,8 @@ export class HomeComponent implements OnInit {
   selectedBook: BookModel;
   displayDialog: boolean = false;
 
-  timeFactors: SelectItem[] = [];
-  selectedTimeFactor: SelectItem;
+  timeFactors: TimeFactorOptionModel[] = [];
+  selectedTimeFactor: TimeFactorOptionModel;
 
   deliveryservices: DeliveryServiceOptionModel[] = [];
   selectedDeliveryService: DeliveryServiceOptionModel;
@@ -59,13 +60,11 @@ export class HomeComponent implements OnInit {
   initFormData() {
     this.timeFactors = [];
     this.deliveryservices = [];
-    this.selectedTimeFactor = this.timeFactors[0];
-    this.selectedDeliveryService = this.deliveryservices[0];
 
     this.buyService.getFactors().subscribe(
       res => {
-        
         this.timeFactors = res.data;
+        this.selectedTimeFactor = this.timeFactors[0];
       },
       err => {
         console.log('get factors error', err);
@@ -74,6 +73,7 @@ export class HomeComponent implements OnInit {
     this.buyService.getDeliveryServices().subscribe(
       res => {
         this.deliveryservices = res.data;
+        this.selectedDeliveryService = this.deliveryservices[0];
       },
       err => {
         console.log('get deliveryservices error', err);
@@ -84,6 +84,7 @@ export class HomeComponent implements OnInit {
   onBookSelected(event) {
     this.selectedBook = event;
     console.log('selectedBook: ', this.selectedBook);
+    this.getAdjustCost();
     this.displayDialog = true;
   }
 
@@ -94,6 +95,7 @@ export class HomeComponent implements OnInit {
   }
 
   changeFactor() {
+    console.log('---changeFactor----selectedTimeFactor: ', this.selectedTimeFactor);
     this.getAdjustCost();
   }
   
@@ -104,11 +106,12 @@ export class HomeComponent implements OnInit {
   getAdjustCost() {
     console.log('---getAdjustCost----selectedTimeFactor: ', this.selectedTimeFactor);
     console.log('---getAdjustCost----selectedDeliveryService: ', this.selectedDeliveryService);
-    const context = {
-      timeFactor: this.selectedTimeFactor,
-      deliveryService: this.selectedDeliveryService
+    const costKey = {
+      deliveryServiceType: this.selectedDeliveryService.type,
+      timeFactorType: this.selectedTimeFactor.type,
+      cost: this.selectedDeliveryService.cost
     }
-    this.buyService.getAdjustCost(context).subscribe(
+    this.buyService.getAdjustCost(costKey).subscribe(
       res => {
         this.cost = res.data;
       },

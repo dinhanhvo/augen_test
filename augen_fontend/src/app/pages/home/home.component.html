@@ -52,6 +52,7 @@ Total items: {{books.length}}
             <div class="p-col-12 p-md-8 p-lg-8">
                 <p-dropdown [options]="timeFactors"
                     (onChange)="changeFactor()" 
+                    optionLabel="label"
                     [(ngModel)]="selectedTimeFactor">
                 </p-dropdown>
                 <!-- <div *ngFor="let factor of timeFactors" class="p-field-checkbox">

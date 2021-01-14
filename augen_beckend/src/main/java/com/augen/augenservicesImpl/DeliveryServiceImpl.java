@@ -7,9 +7,9 @@ import com.augen.model.DeliveryFactor;
 
 public class DeliveryServiceImpl implements IDeliveryService {
 
-    protected byte deliveryType;
-    protected String deliveryName;
-    protected double baseCost;
+    protected byte deliveryType;// 1, 2, 3
+    protected String deliveryName; // Motobike, Train, Aircraft
+    protected double baseCost; // 5, 10, 20
     protected DeliveryFactor deliveryFactor;
     protected Date dateArrival;
     

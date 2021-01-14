@@ -1,21 +1,21 @@
 package com.augen.model;
 
 public class TimeFactor {
-    private int value;
-    private String label;
-    
-    public TimeFactor(int type, String desString) {
-        super();
-        this.value = type;
-        this.label = desString;
-    }
-
-	public int getValue() {
-		return value;
+	String label;
+	int type;
+	
+    public TimeFactor(String label, int type) {
+		super();
+		this.label = label;
+		this.type = type;
 	}
 
-	public void setValue(int value) {
-		this.value = value;
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
 	}
 
 	public String getLabel() {
@@ -25,5 +25,5 @@ public class TimeFactor {
 	public void setLabel(String label) {
 		this.label = label;
 	}
-    
+
 }

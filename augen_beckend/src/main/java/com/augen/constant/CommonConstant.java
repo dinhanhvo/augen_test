@@ -13,4 +13,10 @@ public class CommonConstant {
     public static final String MOTOBIKE_NAME = "Motorbike";
     public static final String TRAIN_NAME = "Train";
     public static final String AIRCRAFT_NAME = "Aircraft";
+    
+    public static final byte JUN_FACTOR_TYPE = 1;
+    public static final byte SEP_FACTOR_TYPE = 2;
+    public static final byte OTHER_TYPE = 3;
+    
+    
 }

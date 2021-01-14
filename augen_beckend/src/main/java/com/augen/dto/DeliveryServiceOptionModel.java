@@ -1,10 +1,12 @@
 package com.augen.dto;
 
-public class DeliveryServiceOptionModel extends SelectItemModel {
+import com.augen.model.TimeFactor;
+
+public class DeliveryServiceOptionModel extends TimeFactor {
 	double cost;
 	
-	public DeliveryServiceOptionModel(int value, String label, double cost) {
-		super(value, label);
+	public DeliveryServiceOptionModel(String label, double cost, int type) {
+		super(label, type);
 		this.cost = cost;
 	}
 	
@@ -14,5 +16,5 @@ public class DeliveryServiceOptionModel extends SelectItemModel {
 	public void setCost(double cost) {
 		this.cost = cost;
 	}
-	
+
 }

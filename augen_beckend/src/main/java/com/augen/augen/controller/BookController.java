@@ -25,7 +25,6 @@ public class BookController {
     @GetMapping("/books")
     public ResponseEntity<ApiResp> getBooks() {
         ApiResp apiResp = new ApiResp();
-        List<BuyBookModel> books = null;
         //Creating a HttpClient object
         CloseableHttpClient httpclient = HttpClients.createDefault();
 
