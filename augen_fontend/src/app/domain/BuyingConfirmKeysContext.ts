@@ -5,7 +5,7 @@ export class BuyingConfirmKeys {
     cost: number;
 }
 
-export class BuyingConfirmKeysContext {
+export class BuyingConfirmContext {
     // bookId: string;
     delyDeliveryService: any;
     timeFactor: any;

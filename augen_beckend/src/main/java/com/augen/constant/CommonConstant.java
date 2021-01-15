@@ -18,5 +18,5 @@ public class CommonConstant {
     public static final byte SEP_FACTOR_TYPE = 2;
     public static final byte OTHER_TYPE = 3;
     
-    
+    public static String SPLIT = " | ";
 }

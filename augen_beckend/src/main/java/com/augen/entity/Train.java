@@ -1,8 +1,8 @@
-package com.augen.augenservicesImpl;
+package com.augen.entity;
 
 import com.augen.constant.CommonConstant;
 
-public class Train extends DeliveryService {
+public class Train extends DeliveryServiceEntity {
 
     private String trainNo;
     private String stationName;

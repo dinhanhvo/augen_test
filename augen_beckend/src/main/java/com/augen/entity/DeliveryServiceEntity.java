@@ -1,8 +1,8 @@
-package com.augen.augenservicesImpl;
+package com.augen.entity;
 
 import java.util.Date;
 
-public class DeliveryService {
+public class DeliveryServiceEntity {
 
     protected byte deliveryType;// 1, 2, 3
     protected String deliveryName; // Motobike, Train, Aircraft

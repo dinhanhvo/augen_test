@@ -1,26 +1,26 @@
 package com.augen.model;
 
-import com.augen.augenservicesImpl.DeliveryService;
+import com.augen.entity.DeliveryServiceEntity;
 
 public class BuyingConfirmContext {
 	int id;
-    DeliveryService delyDeliveryService;
+    DeliveryServiceEntity delyDeliveryService;
     TimeFactor timeFactor;
     double cost;
 //    Object book;
     
 
-    public BuyingConfirmContext(DeliveryService delyDeliveryService, TimeFactor timeFactor, double cost) {
+    public BuyingConfirmContext(DeliveryServiceEntity delyDeliveryService, TimeFactor timeFactor, double cost) {
 		super();
 		this.delyDeliveryService = delyDeliveryService;
 		this.timeFactor = timeFactor;
 		this.cost = cost;
 	}
     
-    public DeliveryService getDelyDeliveryService() {
+    public DeliveryServiceEntity getDelyDeliveryService() {
         return delyDeliveryService;
     }
-	public void setDelyDeliveryService(DeliveryService delyDeliveryService) {
+	public void setDelyDeliveryService(DeliveryServiceEntity delyDeliveryService) {
         this.delyDeliveryService = delyDeliveryService;
     }
 	public TimeFactor getTimeFactor() {

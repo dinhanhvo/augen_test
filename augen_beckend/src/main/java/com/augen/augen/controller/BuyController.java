@@ -16,11 +16,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.augen.augen.response.ApiResp;
-import com.augen.augenservicesImpl.DeliveryService;
+import com.augen.augenservices.IDeliveryServiceInfo;
+import com.augen.constant.CommonConstant;
 import com.augen.dto.DeliveryServiceOptionModel;
+import com.augen.entity.DeliveryServiceEntity;
+import com.augen.factory.DeliveryServiceInfoFactory;
 import com.augen.model.TimeFactor;
 import com.augen.util.CostGenerator;
-import com.augen.util.CostKey;
+import com.augen.util.BuyingConfirmKeys;
 import com.augen.util.DeliveryGenerator;
 import com.augen.util.DeliveryInfoGenerator;
 import com.augen.util.TimeFactorGenerator;
@@ -40,6 +43,34 @@ public class BuyController {
         return new ResponseEntity<ApiResp>(apiResp, HttpStatus.OK);
     }
 	
+    @PostMapping("/confirm")
+    public ResponseEntity<ApiResp> confirmBuying(@RequestBody BuyingConfirmKeys confirmKeysCost) {
+        ApiResp apiResp = new ApiResp();
+        TimeFactor timeFactor = TimeFactorGenerator.getTimeFactor(confirmKeysCost.getTimeFactorType());
+        
+        // get DeliveryServiceInfoService base on type of service
+        // input: timeFactor and cost to generate 'response delivery info'
+        IDeliveryServiceInfo deliveryService = DeliveryServiceInfoFactory.getDeliveryServiceInfo(
+        		confirmKeysCost.getDeliveryServiceType(), 
+        		timeFactor,
+        		confirmKeysCost.getCost()
+		);
+        
+        // get random stored delivery info
+        deliveryService.getDeliveryEntity();
+        
+        // generate delivery info to response
+        String resInfo = deliveryService.generateConfirmedInfo();
+        
+        // fake save to database
+        long id = DeliveryInfoGenerator.saveDeliveryConfirmedInfo(resInfo);
+        
+        // return id of save delivery info
+        apiResp.setData(id);
+        
+        return new ResponseEntity<ApiResp>(apiResp, HttpStatus.OK);
+    }
+	
     @GetMapping("/timefactors")
     public ResponseEntity<ApiResp> getTimeFactors() {
         ApiResp apiResp = new ApiResp();
@@ -56,13 +87,13 @@ public class BuyController {
         ApiResp apiResp = new ApiResp();
 
         // get Delivery Service data
-        List<DeliveryService> listDelivery = new ArrayList<DeliveryService>();
+        List<DeliveryServiceEntity> listDelivery = new ArrayList<DeliveryServiceEntity>();
         DeliveryGenerator.getDeliveryServiceData(listDelivery);
         
         // convert BE delivery service model to FE delivery service model
         List<DeliveryServiceOptionModel> listDSOM = listDelivery.stream().map(item -> {
         	DeliveryServiceOptionModel md = new DeliveryServiceOptionModel( 
-        			item.getDeliveryName() + " | $" + item.getBaseCost(), 
+        			item.getDeliveryName() + CommonConstant.SPLIT + "$" + item.getBaseCost(), 
         			item.getBaseCost(),
         			item.getDeliveryType()
 			); 
@@ -74,14 +105,14 @@ public class BuyController {
     }
     
     @PostMapping("/adjustcost")
-    public ResponseEntity<ApiResp> getAdjustCost(@RequestBody CostKey context) {
+    public ResponseEntity<ApiResp> getAdjustCost(@RequestBody BuyingConfirmKeys context) {
         ApiResp apiResp = new ApiResp();
         
-		Map<CostKey, Double> costmap = new HashMap<CostKey, Double>();
+		Map<BuyingConfirmKeys, Double> costmap = new HashMap<BuyingConfirmKeys, Double>();
 		CostGenerator.getCostData(costmap);
 		
 		double cost = -1;
-		for(CostKey ck:costmap.keySet()) {
+		for(BuyingConfirmKeys ck:costmap.keySet()) {
 			if(ck.getDeliveryServiceType() == context.getDeliveryServiceType() &&
 					ck.getTimeFactorType() == context.getTimeFactorType()) {
 				cost = costmap.get(ck).doubleValue();
@@ -94,7 +125,7 @@ public class BuyController {
 		apiResp.setData(context);
         return new ResponseEntity<ApiResp>(apiResp, HttpStatus.OK);
     }
-    
+    /*
     @PostMapping("/confirm")
     public ResponseEntity<ApiResp> confirmBuying(@RequestBody CostKey confirmKeysCost) {
         ApiResp apiResp = new ApiResp();
@@ -116,5 +147,6 @@ public class BuyController {
         apiResp.setData(id);
         return new ResponseEntity<ApiResp>(apiResp, HttpStatus.OK);
     }
-    
+    */
+
 }

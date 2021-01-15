@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SelectItem } from 'primeng-lts/api';
 import { BookModel } from 'src/app/domain/BookModel';
+import { BuyingConfirmKeys, BuyingConfirmContext } from 'src/app/domain/BuyingConfirmKeysContext';
 import { DeliveryServiceOptionModel } from 'src/app/domain/DeliveryServiceOptionModel';
 import { TimeFactorOptionModel } from 'src/app/domain/TimeFactorOptionModel';
 import { BookService } from 'src/app/services/BookService';
-import { BuyingConfirmKeys, BuyingConfirmKeysContext } from 'src/app/services/BuyingConfirmKeysContext';
 import { BuyService } from 'src/app/services/BuyService';
 
 @Component({
@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
 
   cost: number = 0;
   buyConfirmKeys: BuyingConfirmKeys[] = []; //BuyingConfirmKeys;
-  buyConfirmContext: BuyingConfirmKeysContext;
+  buyConfirmContext: BuyingConfirmContext;
 
   constructor(
     private bookService: BookService,

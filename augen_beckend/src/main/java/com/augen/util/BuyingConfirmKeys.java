@@ -1,17 +1,11 @@
 package com.augen.util;
 
-public class CostKey {
+public class BuyingConfirmKeys {
 	private int deliveryServiceType;
 	private int timeFactorType;
 	private double cost;
 	
-//	public CostKey(int deliveryServiceType, int timeFactorType) {
-//		super();
-//		this.deliveryServiceType = deliveryServiceType;
-//		this.timeFactorType = timeFactorType;
-//	}
-	
-	public CostKey(int deliveryServiceType, int timeFactorType, double cost) {
+	public BuyingConfirmKeys(int deliveryServiceType, int timeFactorType, double cost) {
 		super();
 		this.deliveryServiceType = deliveryServiceType;
 		this.timeFactorType = timeFactorType;

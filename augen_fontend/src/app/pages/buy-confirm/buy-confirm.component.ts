@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BookModel } from 'src/app/domain/BookModel';
+import { BuyingConfirmContext } from 'src/app/domain/BuyingConfirmKeysContext';
 import { BookService } from 'src/app/services/BookService';
 import { BuyService } from 'src/app/services/BuyService';
-
-import {  BuyingConfirmKeysContext } from 'src/app/services/BuyingConfirmKeysContext';
 
 @Component({
   selector: 'app-buy-confirm',
@@ -15,7 +14,7 @@ import {  BuyingConfirmKeysContext } from 'src/app/services/BuyingConfirmKeysCon
 export class BuyConfirmComponent implements OnInit {
 
   confirmedBook: BookModel;
-  buyConfirmContext: BuyingConfirmKeysContext;
+  buyConfirmContext: BuyingConfirmContext;
 
   constructor(
     private route: ActivatedRoute,

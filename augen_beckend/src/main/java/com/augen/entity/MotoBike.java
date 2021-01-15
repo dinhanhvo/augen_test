@@ -1,10 +1,10 @@
-package com.augen.augenservicesImpl;
+package com.augen.entity;
 
 import java.util.Date;
 
 import com.augen.constant.CommonConstant;
 
-public class MotoBike extends DeliveryService {
+public class MotoBike extends DeliveryServiceEntity {
 
     private String driverName;
     private String mobile;
@@ -39,5 +39,5 @@ public class MotoBike extends DeliveryService {
     public void setDeliveryDate(Date deliveryDate) {
         this.deliveryDate = deliveryDate;
     }
-    
+
 }

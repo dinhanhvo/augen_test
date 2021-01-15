@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.augen.augenservicesImpl.DeliveryService;
+import com.augen.entity.DeliveryServiceEntity;
 import com.augen.model.TimeFactor;
 
 public class CostGenerator {
 
 	private static final double[][] ratios = {{0.5, 1.5, 1}, {0.8, 1.8, 1}, {0.8, 2, 1}}; 
 	
-	public static void getCostData(Map<CostKey, Double> costMap) {
-		List<DeliveryService> listDelivery = new ArrayList<DeliveryService>();
+	public static void getCostData(Map<BuyingConfirmKeys, Double> costMap) {
+		List<DeliveryServiceEntity> listDelivery = new ArrayList<DeliveryServiceEntity>();
 		DeliveryGenerator.getDeliveryServiceData(listDelivery);
 		
 		List<TimeFactor> listTimeFactor = TimeFactorGenerator.getTimeFactorData();
@@ -21,7 +21,7 @@ public class CostGenerator {
 			int dtype = listDelivery.get(i).getDeliveryType();
 			for(int j = 0; j< 3; j++) {
 				int ttype = listTimeFactor.get(j).getType();
-				CostKey ck = new CostKey(dtype, ttype, listDelivery.get(i).getBaseCost());
+				BuyingConfirmKeys ck = new BuyingConfirmKeys(dtype, ttype, listDelivery.get(i).getBaseCost());
 				costMap.put(ck, ratios[i][j]);
 			}
 		}
