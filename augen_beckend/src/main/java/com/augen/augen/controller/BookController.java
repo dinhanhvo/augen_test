@@ -41,9 +41,7 @@ public class BookController {
             Scanner sc = new Scanner(httpresponse.getEntity().getContent());
             System.out.println(httpresponse.getStatusLine());
             StringBuffer sb = new StringBuffer();
-            //Printing the status line
             while(sc.hasNext()) {
-//               System.out.println(sc.nextLine());
                sb.append(sc.nextLine());
             }
             apiResp.setData(sb);

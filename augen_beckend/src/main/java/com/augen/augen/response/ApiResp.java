@@ -1,8 +1,5 @@
 package com.augen.augen.response;
 
-import java.util.List;
-import java.util.Map;
-
 public class ApiResp {
     private Object data;
     private String errors;

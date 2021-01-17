@@ -22,8 +22,8 @@ import com.augen.dto.DeliveryServiceOptionModel;
 import com.augen.entity.DeliveryServiceEntity;
 import com.augen.factory.DeliveryServiceInfoFactory;
 import com.augen.model.TimeFactor;
-import com.augen.util.CostGenerator;
 import com.augen.util.BuyingConfirmKeys;
+import com.augen.util.CostGenerator;
 import com.augen.util.DeliveryGenerator;
 import com.augen.util.DeliveryInfoGenerator;
 import com.augen.util.TimeFactorGenerator;
@@ -43,6 +43,11 @@ public class BuyController {
         return new ResponseEntity<ApiResp>(apiResp, HttpStatus.OK);
     }
 	
+	/*
+	 * response delivery info
+	 * Ex: 
+	 * 
+	 */
     @PostMapping("/confirm")
     public ResponseEntity<ApiResp> confirmBuying(@RequestBody BuyingConfirmKeys confirmKeysCost) {
         ApiResp apiResp = new ApiResp();
@@ -65,7 +70,7 @@ public class BuyController {
         // fake save to database
         long id = DeliveryInfoGenerator.saveDeliveryConfirmedInfo(resInfo);
         
-        // return id of save delivery info
+        // respone id of saved delivery info
         apiResp.setData(id);
         
         return new ResponseEntity<ApiResp>(apiResp, HttpStatus.OK);
@@ -90,15 +95,16 @@ public class BuyController {
         List<DeliveryServiceEntity> listDelivery = new ArrayList<DeliveryServiceEntity>();
         DeliveryGenerator.getDeliveryServiceData(listDelivery);
         
-        // convert BE delivery service model to FE delivery service model
+        // convert BE delivery service model to FE delivery service options model - data for drop-down service option
         List<DeliveryServiceOptionModel> listDSOM = listDelivery.stream().map(item -> {
         	DeliveryServiceOptionModel md = new DeliveryServiceOptionModel( 
-        			item.getDeliveryName() + CommonConstant.SPLIT + "$" + item.getBaseCost(), 
+        			item.getDeliveryName() + CommonConstant.SPLIT + "$" + item.getBaseCost(), // Train | $10 
         			item.getBaseCost(),
         			item.getDeliveryType()
 			); 
         	return md;
         }).collect(Collectors.toList());
+        
         apiResp.setData(listDSOM);
         
         return new ResponseEntity<ApiResp>(apiResp, HttpStatus.OK);
@@ -125,6 +131,27 @@ public class BuyController {
 		apiResp.setData(context);
         return new ResponseEntity<ApiResp>(apiResp, HttpStatus.OK);
     }
+    
+    @PostMapping("/adjustcost2")
+    public double getAdjustCost2(@RequestBody BuyingConfirmKeys context) {
+        
+		Map<BuyingConfirmKeys, Double> costmap = new HashMap<BuyingConfirmKeys, Double>();
+		CostGenerator.getCostData(costmap);
+		
+		double cost = -1;
+		for(BuyingConfirmKeys ck:costmap.keySet()) {
+			if(ck.getDeliveryServiceType() == context.getDeliveryServiceType() &&
+					ck.getTimeFactorType() == context.getTimeFactorType()) {
+				cost = costmap.get(ck).doubleValue();
+				context.setCost(cost * context.getCost());
+				break;
+			}
+		}
+         
+        System.out.println("BuyController.getAdjustCost()=======ratio =" + cost);
+        return context.getCost();
+    }
+    
     /*
     @PostMapping("/confirm")
     public ResponseEntity<ApiResp> confirmBuying(@RequestBody CostKey confirmKeysCost) {
@@ -149,4 +176,13 @@ public class BuyController {
     }
     */
 
+    
+    @GetMapping("/initUT")
+    public String testUT2() {
+    	ApiResp apiResp = new ApiResp();
+    	System.out.println("BuyController.testUT()==================");
+//    	ObjectResponse apiResp = new ObjectResponse(CommonConstant.SPLIT);
+    	apiResp.setData(CommonConstant.SPLIT);
+    	return CommonConstant.SPLIT;
+    }
 }
