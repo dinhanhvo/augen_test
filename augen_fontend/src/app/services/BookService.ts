@@ -19,8 +19,8 @@ export class BookService {
 
     constructor(private http: HttpClient) {}
 
-    getBooks(): Observable<any> {
-        const url = this.serverUrl + 'books';
+    getBooks(text: string): Observable<any> {
+        const url = this.serverUrl + 'books?q=' + text;
         return this.http.get<any>(url, this.options).pipe(
             tap(
                 data => {

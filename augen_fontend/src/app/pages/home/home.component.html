@@ -1,4 +1,16 @@
-<!-- <p>home works!</p> -->
+<div class="p-grid" style="text-align: right">
+    <div>
+        <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
+        <input type="text" pInputText size="50" placeholder="Search by book title or author"
+          [(ngModel)] = "searchText" style="width:auto">
+    </div>
+    <div class="ui-dialog-buttonpane ui-helper-clearfix">
+        <button pButton  type="button" pButton icon="pi pi-check" (click)="search()" 
+            label="Search" p-button-raised p-button-rounded>
+        </button>
+    </div>
+</div>
+<br>
 Total items: {{books.length}}
 <br>
 <div class="products d-flex d-inline-flex justify-content-between">

@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.augen.augen.model.BuyBookModel;
@@ -23,13 +24,15 @@ import com.augen.augen.response.ApiResp;
 public class BookController {
 
     @GetMapping("/books")
-    public ResponseEntity<ApiResp> getBooks() {
+    public ResponseEntity<ApiResp> getBooks(@RequestParam String q) {
         ApiResp apiResp = new ApiResp();
         //Creating a HttpClient object
         CloseableHttpClient httpclient = HttpClients.createDefault();
 
+        String searchText = (q == null || q.trim().length() == 0)? "%7bsearch": q;
+        System.out.println("BookController.getBooks()====== searchText=" + searchText);
         //Creating a HttpGet object
-        HttpGet httpget = new HttpGet("https://www.googleapis.com/books/v1/volumes?q=%7bsearch");
+        HttpGet httpget = new HttpGet("https://www.googleapis.com/books/v1/volumes?q=" + searchText);
 
         //Printing the method used
         System.out.println("Request Type: "+httpget.getMethod());

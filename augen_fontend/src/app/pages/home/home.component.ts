@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SelectItem } from 'primeng-lts/api';
 import { BookModel } from 'src/app/domain/BookModel';
 import { BuyingConfirmKeys, BuyingConfirmContext } from 'src/app/domain/BuyingConfirmKeysContext';
 import { DeliveryServiceOptionModel } from 'src/app/domain/DeliveryServiceOptionModel';
@@ -18,6 +17,7 @@ export class HomeComponent implements OnInit {
   books: BookModel[] = [];
   selectedBook: BookModel;
   displayDialog: boolean = false;
+  searchText = '';
 
   timeFactors: TimeFactorOptionModel[] = [];
   selectedTimeFactor: TimeFactorOptionModel;
@@ -36,19 +36,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.bookService.getBooks().subscribe(
+    this.bookService.getBooks(this.searchText).subscribe(
       res => {
-        let items: any[] = JSON.parse(res.data).items; 
-        this.books = items.map(item => {
-          let book: BookModel = new BookModel();
-          book.id = item.id;
-          book.title = item.volumeInfo.title;
-          book.author = item.volumeInfo.authors;
-          book.imageLinks = item.volumeInfo.imageLinks;
-          book.publishedDate = item.volumeInfo.publishedDate;
-          book.description = item.volumeInfo.description;
-          return book;
-        });
+        const items: any[] = JSON.parse(res.data).items; 
+        this.books = this.mapBookObject(items);
 
         console.log(this.books);
         
@@ -82,6 +73,40 @@ export class HomeComponent implements OnInit {
         console.log('get deliveryservices error', err);
       }
     )
+  }
+
+  search() {
+    this.bookService.getBooks(this.searchText).subscribe(
+      res => {
+        const items: any[] = JSON.parse(res.data).items; 
+        if (items.length === 0) {
+          this.books = [];
+        } else {
+        }
+        this.books = this.mapBookObject(items);
+        // console.log(this.books);
+        
+      },
+      err => {
+        console.log('getBooks error', err);
+      }
+    )
+  }
+
+  mapBookObject(items: any[]) {
+    if (items.length === 0) {
+      return [];
+    } 
+    return items.map(item => {
+      let book: BookModel = new BookModel();
+      book.id = item.id;
+      book.title = item.volumeInfo.title;
+      book.author = item.volumeInfo.authors;
+      book.imageLinks = item.volumeInfo.imageLinks;
+      book.publishedDate = item.volumeInfo.publishedDate;
+      book.description = item.volumeInfo.description;
+      return book;
+    });
   }
 
   onBookSelected(event) {
