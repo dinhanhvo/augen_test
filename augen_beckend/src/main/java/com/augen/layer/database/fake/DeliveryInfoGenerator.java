@@ -6,17 +6,19 @@ import java.util.List;
 import java.util.Map;
 
 import com.augen.constant.CommonConstant;
+import com.augen.model.fontend.BuyBookModel;
 
 public class DeliveryInfoGenerator {
-	public static int size = 10;
-    public static List<String[]> motoDeliveryInfo = new ArrayList<>();
-    public static List<String[]> trainDeliveryInfo = new ArrayList<>();
-    public static List<String[]> airDeliveryInfo = new ArrayList<>();
+	private static int size = 10;
+	private static List<String[]> motoDeliveryInfo = new ArrayList<>();
+    private static List<String[]> trainDeliveryInfo = new ArrayList<>();
+    private static List<String[]> airDeliveryInfo = new ArrayList<>();
     
-    public static Map<Integer, List<String[]>> deliveryInfoData = new HashMap<Integer, List<String[]>>();
+    private static Map<Integer, List<String[]>> deliveryInfoData = new HashMap<Integer, List<String[]>>();
     
-    // fake database, store confirmation info into
-    public static Map<Long, String> listConfirmedString = new HashMap<Long, String>();
+    // fake database, store confirmation info into this map
+    private static Map<Long, BuyBookModel> listConfirmedString = new HashMap<Long, BuyBookModel>();
+    
     // id of stored buying info
     private static long idDeliveryInfo = 0;
     
@@ -35,9 +37,9 @@ public class DeliveryInfoGenerator {
             DeliveryInfoGenerator.airDeliveryInfo.add(as);
         }
         
-        DeliveryInfoGenerator.deliveryInfoData.put(new Integer(CommonConstant.MOTOBIKE_TYPE), motoDeliveryInfo);
-        DeliveryInfoGenerator.deliveryInfoData.put(new Integer(CommonConstant.TRAIN_TYPE), trainDeliveryInfo);
-        DeliveryInfoGenerator.deliveryInfoData.put(new Integer(CommonConstant.AIRCRAFT_TYPE), airDeliveryInfo);
+        DeliveryInfoGenerator.deliveryInfoData.put(Integer.valueOf(CommonConstant.MOTOBIKE_TYPE), motoDeliveryInfo);
+        DeliveryInfoGenerator.deliveryInfoData.put(Integer.valueOf(CommonConstant.TRAIN_TYPE), trainDeliveryInfo);
+        DeliveryInfoGenerator.deliveryInfoData.put(Integer.valueOf(CommonConstant.AIRCRAFT_TYPE), airDeliveryInfo);
     };
     
     public static String[] getDeliveryInfo(int serviceType, int randomIndex) {
@@ -49,11 +51,12 @@ public class DeliveryInfoGenerator {
     	return DeliveryInfoGenerator.deliveryInfoData.get(serviceType).get(randomIndex);
     }
     
-    public static String getDeliveryInfoStringById(Long id) {
+    // get by Id
+    public static BuyBookModel getDeliveryInfoStringById(Long id) {
     	return DeliveryInfoGenerator.listConfirmedString.get(id);
     }
     
-    public static long saveDeliveryConfirmedInfo(String deliveryInfo) {
+    public static long saveDeliveryConfirmedInfo(BuyBookModel deliveryInfo) {
     	long id = idDeliveryInfo;
     	DeliveryInfoGenerator.listConfirmedString.put(idDeliveryInfo, deliveryInfo);
     	idDeliveryInfo++;

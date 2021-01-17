@@ -1,4 +1,4 @@
-package com.augen.entity;
+package com.augen.model.entity;
 
 import java.util.Date;
 

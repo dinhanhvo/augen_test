@@ -3,10 +3,10 @@ package com.augen.augenservicesImpl;
 import com.augen.augenservices.IDeliveryServiceArrivalInfo;
 import com.augen.augenservices.IDeliveryServiceTrainInfo;
 import com.augen.constant.CommonConstant;
-import com.augen.entity.DeliveryServiceEntity;
-import com.augen.entity.Train;
 import com.augen.layer.database.fake.DeliveryInfoGenerator;
-import com.augen.model.TimeFactor;
+import com.augen.model.entity.DeliveryServiceEntity;
+import com.augen.model.entity.TrainEntity;
+import com.augen.model.fontend.TimeFactor;
 
 public class DeliveryServiceTrainInfo extends DeliveryServiceInfoService 
 							implements IDeliveryServiceTrainInfo, IDeliveryServiceArrivalInfo {
@@ -18,13 +18,13 @@ public class DeliveryServiceTrainInfo extends DeliveryServiceInfoService
 
 	@Override
 	public String getTrainNoInfo() {
-		Train tr = (Train) this.getDeliveryServiceEntity();
+		TrainEntity tr = (TrainEntity) this.getDeliveryServiceEntity();
 		return "Train no: " + tr.getTrainNo();
 	}
 
 	@Override
 	public String getStationNameInfo() {
-		Train tr = (Train) this.getDeliveryServiceEntity();
+		TrainEntity tr = (TrainEntity) this.getDeliveryServiceEntity();
 		return "Station of arrival: " + tr.getDeliveryName();
 	}
 	
@@ -56,9 +56,9 @@ public class DeliveryServiceTrainInfo extends DeliveryServiceInfoService
     	int i = (int) Math.round(Math.random() * 9);
     	String[] trs = DeliveryInfoGenerator.getDeliveryInfo(CommonConstant.TRAIN_TYPE, i);
     	
-		DeliveryServiceEntity deliveryService = new Train();
-		((Train) deliveryService).setTrainNo(trs[0]);
-		((Train) deliveryService).setStationName(trs[1]);
+		DeliveryServiceEntity deliveryService = new TrainEntity();
+		((TrainEntity) deliveryService).setTrainNo(trs[0]);
+		((TrainEntity) deliveryService).setStationName(trs[1]);
 		
         this.setDeliveryServiceEntity(deliveryService);
 		

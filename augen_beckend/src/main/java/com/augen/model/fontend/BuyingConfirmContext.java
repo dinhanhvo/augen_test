@@ -1,7 +1,11 @@
-package com.augen.model;
+package com.augen.model.fontend;
 
-import com.augen.entity.DeliveryServiceEntity;
+import com.augen.model.entity.DeliveryServiceEntity;
 
+/**
+ * Buying Confirmation bundle context
+ *
+ */
 public class BuyingConfirmContext {
 	int id;
     DeliveryServiceEntity delyDeliveryService;

@@ -2,6 +2,7 @@ package com.augen.constant;
 
 public class CommonConstant {
 
+	public static final String ORIGIN = "http://localhost:4300";
     public static final double MOTOBIKE_COST = 5;
     public static final double TRAIN_COST = 10;
     public static final double AIRCRAFT_COST = 20;

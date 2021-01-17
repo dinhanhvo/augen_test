@@ -1,6 +1,4 @@
-package com.augen.augen.model;
-
-import com.augen.model.TimeFactor;
+package com.augen.model.fontend;
 
 public class DeliveryServiceOptionModel extends TimeFactor {
 	double cost;

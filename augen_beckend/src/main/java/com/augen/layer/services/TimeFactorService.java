@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import com.augen.layer.database.fake.TimeFactorGenerator;
-import com.augen.model.TimeFactor;
+import com.augen.model.fontend.TimeFactor;
 
 //@Service
 public class TimeFactorService {

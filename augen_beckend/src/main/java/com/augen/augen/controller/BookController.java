@@ -11,7 +11,7 @@ import com.augen.augen.response.ApiResp;
 import com.augen.layer.services.BookService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4300")
+//@CrossOrigin(origins = "http://localhost:4300")
 public class BookController {
 
     @GetMapping("/books")

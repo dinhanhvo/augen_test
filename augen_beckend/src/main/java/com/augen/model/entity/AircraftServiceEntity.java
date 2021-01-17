@@ -1,13 +1,13 @@
-package com.augen.entity;
+package com.augen.model.entity;
 
 import com.augen.constant.CommonConstant;
 
-public class Aircraft extends DeliveryServiceEntity {
+public class AircraftServiceEntity extends DeliveryServiceEntity {
 
     private String flightNo;
     private String gateNumber;
     
-    public Aircraft() {
+    public AircraftServiceEntity() {
         this.setBaseCost(CommonConstant.AIRCRAFT_COST);
         this.setDeliveryType(CommonConstant.AIRCRAFT_TYPE);
         this.setDeliveryName(CommonConstant.AIRCRAFT_NAME);

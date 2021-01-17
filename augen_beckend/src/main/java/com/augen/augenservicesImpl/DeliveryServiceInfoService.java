@@ -1,7 +1,7 @@
 package com.augen.augenservicesImpl;
 
-import com.augen.entity.DeliveryServiceEntity;
-import com.augen.model.TimeFactor;
+import com.augen.model.entity.DeliveryServiceEntity;
+import com.augen.model.fontend.TimeFactor;
 
 public class DeliveryServiceInfoService {
 	private DeliveryServiceEntity deliveryServiceEntity = null;

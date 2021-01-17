@@ -4,10 +4,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.augen.augen.model.BuyingConfirmKeys;
-import com.augen.entity.DeliveryServiceEntity;
 import com.augen.layer.services.TimeFactorService;
-import com.augen.model.TimeFactor;
+import com.augen.model.entity.DeliveryServiceEntity;
+import com.augen.model.fontend.BuyingConfirmKeys;
+import com.augen.model.fontend.TimeFactor;
 
 public class CostGenerator {
 
@@ -16,8 +16,8 @@ public class CostGenerator {
 	
 	/*
 	 * create a map with key is <DeliveryService, TimeFactor> and value is ratio
-	 * Ex: <'Motorbike', 'June to Aug'> ==> ratio = 0.5
-	 * 	   <'Train', 'Sep'> ==> ratio = 1.8 	
+	 * Ex: <['Motorbike', 'June to Aug'], 05> ==> ratio = 0.5
+	 * 	   <['Train', 'Sep'], 1.8> ==> ratio = 1.8 	
 	 */
 	public static void createCostData() {
 		costMap = new HashMap<BuyingConfirmKeys, Double>();
@@ -25,11 +25,12 @@ public class CostGenerator {
 		
 		List<TimeFactor> listTimeFactor = TimeFactorService.getTimeFactorData();
 		
-		for(int i = 0; i < 3; i++) {
+		int size = ratios.length;
+		for(int i = 0; i < size; i++) {
 			int dtype = listDelivery.get(i).getDeliveryType();
-			for(int j = 0; j< 3; j++) {
+			for(int j = 0; j< size; j++) {
 				int ttype = listTimeFactor.get(j).getType();
-				BuyingConfirmKeys ck = new BuyingConfirmKeys(dtype, ttype, listDelivery.get(i).getBaseCost());
+				BuyingConfirmKeys ck = new BuyingConfirmKeys(dtype, ttype, listDelivery.get(i).getBaseCost(), "");
 				costMap.put(ck, ratios[i][j]);
 			}
 		}

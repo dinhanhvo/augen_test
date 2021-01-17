@@ -1,4 +1,4 @@
-package com.augen.model;
+package com.augen.model.fontend;
 
 public class DeliveryFactor {
     private int type;

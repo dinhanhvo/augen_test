@@ -3,10 +3,10 @@ package com.augen.augenservicesImpl;
 import com.augen.augenservices.IDeliveryServiceAirInfo;
 import com.augen.augenservices.IDeliveryServiceInfo;
 import com.augen.constant.CommonConstant;
-import com.augen.entity.Aircraft;
-import com.augen.entity.DeliveryServiceEntity;
 import com.augen.layer.database.fake.DeliveryInfoGenerator;
-import com.augen.model.TimeFactor;
+import com.augen.model.entity.AircraftServiceEntity;
+import com.augen.model.entity.DeliveryServiceEntity;
+import com.augen.model.fontend.TimeFactor;
 
 public class DeliveryServiceAircraftInfo extends DeliveryServiceInfoService
 		implements IDeliveryServiceInfo, IDeliveryServiceAirInfo {
@@ -22,13 +22,13 @@ public class DeliveryServiceAircraftInfo extends DeliveryServiceInfoService
 
 	@Override
 	public String generateFlightNo() {
-		Aircraft acr = (Aircraft) this.getDeliveryServiceEntity();
+		AircraftServiceEntity acr = (AircraftServiceEntity) this.getDeliveryServiceEntity();
 		return "Flight no: " + acr.getFlightNo();
 	}
 
 	@Override
 	public String generateGateNumber() {
-		Aircraft acr = (Aircraft) this.getDeliveryServiceEntity();
+		AircraftServiceEntity acr = (AircraftServiceEntity) this.getDeliveryServiceEntity();
 		return "Gate of arrival: " + acr.getGateNumber();
 	}
 
@@ -55,9 +55,9 @@ public class DeliveryServiceAircraftInfo extends DeliveryServiceInfoService
     	int i = (int) Math.round(Math.random() * 9);
     	String[] ms = DeliveryInfoGenerator.getDeliveryInfo(CommonConstant.AIRCRAFT_TYPE, i);
     	
-		DeliveryServiceEntity deliveryService = new Aircraft();
-		((Aircraft) deliveryService).setFlightNo(ms[0]);
-		((Aircraft) deliveryService).setGateNumber(ms[1]);
+		DeliveryServiceEntity deliveryService = new AircraftServiceEntity();
+		((AircraftServiceEntity) deliveryService).setFlightNo(ms[0]);
+		((AircraftServiceEntity) deliveryService).setGateNumber(ms[1]);
 		
         this.setDeliveryServiceEntity(deliveryService);
 	}

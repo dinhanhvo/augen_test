@@ -1,13 +1,13 @@
-package com.augen.entity;
+package com.augen.model.entity;
 
 import com.augen.constant.CommonConstant;
 
-public class Train extends DeliveryServiceEntity {
+public class TrainEntity extends DeliveryServiceEntity {
 
     private String trainNo;
     private String stationName;
     
-    public Train() {
+    public TrainEntity() {
         this.setBaseCost(CommonConstant.TRAIN_COST);
         this.setDeliveryType(CommonConstant.TRAIN_TYPE);
         this.setDeliveryName(CommonConstant.TRAIN_NAME);

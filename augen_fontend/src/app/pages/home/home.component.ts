@@ -142,7 +142,8 @@ export class HomeComponent implements OnInit {
     const costKey: BuyingConfirmKeys =  {
       deliveryServiceType: this.selectedDeliveryService.type,
       timeFactorType: this.selectedTimeFactor.type,
-      cost: this.selectedDeliveryService.cost
+      cost: this.selectedDeliveryService.cost,
+      bookId: this.selectedBook.id
     }
     this.buyService.getAdjustCost(costKey).subscribe(
       res => {

@@ -1,38 +1,26 @@
 package com.augen.augen.controller;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.augen.augen.model.BuyingConfirmKeys;
-import com.augen.augen.model.DeliveryServiceOptionModel;
 import com.augen.augen.response.ApiResp;
-import com.augen.augenservices.IDeliveryServiceInfo;
 import com.augen.constant.CommonConstant;
-import com.augen.entity.DeliveryServiceEntity;
-import com.augen.factory.DeliveryServiceInfoFactory;
-import com.augen.layer.database.fake.CostGenerator;
-import com.augen.layer.database.fake.DeliveryGenerator;
-import com.augen.layer.database.fake.DeliveryInfoGenerator;
-import com.augen.layer.database.fake.TimeFactorGenerator;
 import com.augen.layer.services.DeliveryServiceService;
 import com.augen.layer.services.TimeFactorService;
-import com.augen.model.TimeFactor;
+import com.augen.model.fontend.BuyBookModel;
+import com.augen.model.fontend.BuyingConfirmKeys;
+import com.augen.model.fontend.DeliveryServiceOptionModel;
+import com.augen.model.fontend.TimeFactor;
 
+//@CrossOrigin(origins = CommonConstant.ORIGIN)
 @RestController
-@CrossOrigin(origins = "http://localhost:4300")
 public class BuyController {
 
 //	@Autowired
@@ -42,10 +30,10 @@ public class BuyController {
     public ResponseEntity<ApiResp> getDeliveryInfo(@RequestParam String id) {
         ApiResp apiResp = new ApiResp();
         
-        Long idInfo = new Long(id);
+        Long idInfo = Long.valueOf(id);
         
-        String info = DeliveryInfoGenerator.getDeliveryInfoStringById(idInfo);
-		apiResp.setData(info);
+        BuyBookModel confirmedInfo = DeliveryServiceService.getDeliveryInfoStringById(idInfo);
+		apiResp.setData(confirmedInfo);
         return new ResponseEntity<ApiResp>(apiResp, HttpStatus.OK);
     }
 	
@@ -57,24 +45,9 @@ public class BuyController {
     @PostMapping("/confirm")
     public ResponseEntity<ApiResp> confirmBuying(@RequestBody BuyingConfirmKeys confirmKeysCost) {
         ApiResp apiResp = new ApiResp();
-        TimeFactor timeFactor = TimeFactorService.getTimeFactor(confirmKeysCost.getTimeFactorType());
-        
-        // get DeliveryServiceInfoService base on type of service
-        // input: timeFactor and cost to generate 'response delivery info'
-        IDeliveryServiceInfo deliveryService = DeliveryServiceInfoFactory.getDeliveryServiceInfo(
-        		confirmKeysCost.getDeliveryServiceType(), 
-        		timeFactor,
-        		confirmKeysCost.getCost()
-		);
-        
-        // get random stored delivery info
-        deliveryService.getDeliveryEntity();
-        
-        // generate delivery info to response
-        String resInfo = deliveryService.generateConfirmedInfo();
         
         // fake save to database
-        long id = DeliveryInfoGenerator.saveDeliveryConfirmedInfo(resInfo);
+        long id = DeliveryServiceService.saveConfirmBuying(confirmKeysCost);
         
         // response id of saved delivery info
         apiResp.setData(id);

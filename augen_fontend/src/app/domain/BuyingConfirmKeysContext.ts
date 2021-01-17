@@ -1,12 +1,12 @@
 export class BuyingConfirmKeys {
-    // bookId: string;
+    bookId: string;
     deliveryServiceType: number;
     timeFactorType: number;
     cost: number;
 }
 
 export class BuyingConfirmContext {
-    // bookId: string;
+    bookId: string;
     delyDeliveryService: any;
     timeFactor: any;
     cost: number;

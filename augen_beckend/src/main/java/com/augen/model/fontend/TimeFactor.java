@@ -1,5 +1,9 @@
-package com.augen.model;
+package com.augen.model.fontend;
 
+/**
+ * map to TimeFactor option at client side
+ *
+ */
 public class TimeFactor {
 	String label;
 	int type;
