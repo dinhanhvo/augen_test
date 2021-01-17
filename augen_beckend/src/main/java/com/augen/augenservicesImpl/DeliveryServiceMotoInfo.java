@@ -4,8 +4,8 @@ import com.augen.augenservices.IDeliveryServiceMotoInfo;
 import com.augen.constant.CommonConstant;
 import com.augen.entity.DeliveryServiceEntity;
 import com.augen.entity.MotoBike;
+import com.augen.layer.database.fake.DeliveryInfoGenerator;
 import com.augen.model.TimeFactor;
-import com.augen.util.DeliveryInfoGenerator;
 
 public class DeliveryServiceMotoInfo extends DeliveryServiceInfoService implements IDeliveryServiceMotoInfo {
 
@@ -14,7 +14,8 @@ public class DeliveryServiceMotoInfo extends DeliveryServiceInfoService implemen
 	}
 
 	/*
-	 * generate delivery info to response to client
+	 * generate confirmed delivery info
+	 * @return: Train no: traiNo6 | Station of arrival: Train | Date of arrival: June to Aug | Cost: $8.0
 	 */
 	@Override
 	public String generateConfirmedInfo() {

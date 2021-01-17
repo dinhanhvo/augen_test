@@ -1,4 +1,4 @@
-package com.augen.dto;
+package com.augen.augen.model;
 
 import com.augen.model.TimeFactor;
 

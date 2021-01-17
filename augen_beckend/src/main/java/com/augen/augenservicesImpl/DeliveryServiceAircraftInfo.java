@@ -5,8 +5,8 @@ import com.augen.augenservices.IDeliveryServiceInfo;
 import com.augen.constant.CommonConstant;
 import com.augen.entity.Aircraft;
 import com.augen.entity.DeliveryServiceEntity;
+import com.augen.layer.database.fake.DeliveryInfoGenerator;
 import com.augen.model.TimeFactor;
-import com.augen.util.DeliveryInfoGenerator;
 
 public class DeliveryServiceAircraftInfo extends DeliveryServiceInfoService
 		implements IDeliveryServiceInfo, IDeliveryServiceAirInfo {
@@ -32,6 +32,10 @@ public class DeliveryServiceAircraftInfo extends DeliveryServiceInfoService
 		return "Gate of arrival: " + acr.getGateNumber();
 	}
 
+	/*
+	 * generate confirmed delivery info
+	 * @return: Train no: traiNo6 | Station of arrival: Train | Date of arrival: June to Aug | Cost: $8.0
+	 */
 	@Override
 	public String generateConfirmedInfo() {
 		StringBuffer info = new StringBuffer();

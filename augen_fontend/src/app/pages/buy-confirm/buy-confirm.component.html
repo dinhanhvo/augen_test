@@ -1,5 +1,9 @@
 <div *ngIf="buyConfirmContext">
-    Delivery Info: {{buyConfirmContext}}
+    Delivery Info: 
+    <h2 style="color: #217346"> {{buyConfirmContext}} </h2>
 </div>
 <br>
-<button type="button" pButton icon="pi pi-check" (click)="buyContinue()" label="Continue To Buy"></button>
+<button type="button" pButton icon="pi pi-check" 
+    class="p-button-rounded p-button-success"
+    (click)="buyContinue()" label="Continue To Buy">
+</button>

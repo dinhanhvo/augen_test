@@ -1,27 +1,16 @@
-package com.augen.util;
+package com.augen.layer.services;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Service;
+
+import com.augen.layer.database.fake.TimeFactorGenerator;
 import com.augen.model.TimeFactor;
 
-public class TimeFactorGenerator {
+//@Service
+public class TimeFactorService {
 
-	
-	/*
-	 * Fake data is storing in database
-	 */
-	private static List<TimeFactor> timeDeliveryFactors = new ArrayList<TimeFactor>();
-	public static void  createTimeFactorData() {
-		TimeFactor tdf1 = new TimeFactor("June to Aug", 1);
-		TimeFactor tdf2 = new TimeFactor("Sep", 2);
-		TimeFactor tdf3 = new TimeFactor("Other months", 3);
-		TimeFactorGenerator.timeDeliveryFactors.add(tdf1);
-		TimeFactorGenerator.timeDeliveryFactors.add(tdf2);
-		TimeFactorGenerator.timeDeliveryFactors.add(tdf3);
-    };
-    
     /*
      * Fake get all time factor data
      */

@@ -16,8 +16,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.augen.augen.controller.BuyController;
+import com.augen.augen.model.BuyingConfirmKeys;
 import com.augen.constant.CommonConstant;
-import com.augen.util.BuyingConfirmKeys;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 

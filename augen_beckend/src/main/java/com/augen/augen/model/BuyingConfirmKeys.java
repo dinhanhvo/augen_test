@@ -1,4 +1,4 @@
-package com.augen.util;
+package com.augen.augen.model;
 
 public class BuyingConfirmKeys {
 	private int deliveryServiceType;

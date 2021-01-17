@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,23 +16,28 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.augen.augen.model.BuyingConfirmKeys;
+import com.augen.augen.model.DeliveryServiceOptionModel;
 import com.augen.augen.response.ApiResp;
 import com.augen.augenservices.IDeliveryServiceInfo;
 import com.augen.constant.CommonConstant;
-import com.augen.dto.DeliveryServiceOptionModel;
 import com.augen.entity.DeliveryServiceEntity;
 import com.augen.factory.DeliveryServiceInfoFactory;
+import com.augen.layer.database.fake.CostGenerator;
+import com.augen.layer.database.fake.DeliveryGenerator;
+import com.augen.layer.database.fake.DeliveryInfoGenerator;
+import com.augen.layer.database.fake.TimeFactorGenerator;
+import com.augen.layer.services.DeliveryServiceService;
+import com.augen.layer.services.TimeFactorService;
 import com.augen.model.TimeFactor;
-import com.augen.util.BuyingConfirmKeys;
-import com.augen.util.CostGenerator;
-import com.augen.util.DeliveryGenerator;
-import com.augen.util.DeliveryInfoGenerator;
-import com.augen.util.TimeFactorGenerator;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4300")
 public class BuyController {
 
+//	@Autowired
+//	private TimeFactorService  timeFactorService;
+	
 	@GetMapping("/deliveryinfo")
     public ResponseEntity<ApiResp> getDeliveryInfo(@RequestParam String id) {
         ApiResp apiResp = new ApiResp();
@@ -45,13 +51,13 @@ public class BuyController {
 	
 	/*
 	 * response delivery info
-	 * Ex: 
+	 * Ex: 'Train no: traiNo6 | Station of arrival: Train | Date of arrival: Sep | Cost: $18.0'
 	 * 
 	 */
     @PostMapping("/confirm")
     public ResponseEntity<ApiResp> confirmBuying(@RequestBody BuyingConfirmKeys confirmKeysCost) {
         ApiResp apiResp = new ApiResp();
-        TimeFactor timeFactor = TimeFactorGenerator.getTimeFactor(confirmKeysCost.getTimeFactorType());
+        TimeFactor timeFactor = TimeFactorService.getTimeFactor(confirmKeysCost.getTimeFactorType());
         
         // get DeliveryServiceInfoService base on type of service
         // input: timeFactor and cost to generate 'response delivery info'
@@ -70,7 +76,7 @@ public class BuyController {
         // fake save to database
         long id = DeliveryInfoGenerator.saveDeliveryConfirmedInfo(resInfo);
         
-        // respone id of saved delivery info
+        // response id of saved delivery info
         apiResp.setData(id);
         
         return new ResponseEntity<ApiResp>(apiResp, HttpStatus.OK);
@@ -80,8 +86,8 @@ public class BuyController {
     public ResponseEntity<ApiResp> getTimeFactors() {
         ApiResp apiResp = new ApiResp();
         
-        // get Delivery Service data
-        List<TimeFactor> listTimeFactor = TimeFactorGenerator.getTimeFactorData();
+        // get TimeFactor data
+        List<TimeFactor> listTimeFactor = TimeFactorService.getTimeFactorData();
 		
 		apiResp.setData(listTimeFactor);
         return new ResponseEntity<ApiResp>(apiResp, HttpStatus.OK);
@@ -91,19 +97,8 @@ public class BuyController {
     public ResponseEntity<ApiResp> getDeliveryServices() {
         ApiResp apiResp = new ApiResp();
 
-        // get Delivery Service data
-        List<DeliveryServiceEntity> listDelivery = new ArrayList<DeliveryServiceEntity>();
-        DeliveryGenerator.getDeliveryServiceData(listDelivery);
-        
-        // convert BE delivery service model to FE delivery service options model - data for drop-down service option
-        List<DeliveryServiceOptionModel> listDSOM = listDelivery.stream().map(item -> {
-        	DeliveryServiceOptionModel md = new DeliveryServiceOptionModel( 
-        			item.getDeliveryName() + CommonConstant.SPLIT + "$" + item.getBaseCost(), // Train | $10 
-        			item.getBaseCost(),
-        			item.getDeliveryType()
-			); 
-        	return md;
-        }).collect(Collectors.toList());
+        // get delivery service data
+        List<DeliveryServiceOptionModel> listDSOM = DeliveryServiceService.getDeliveryServices();
         
         apiResp.setData(listDSOM);
         
@@ -114,42 +109,13 @@ public class BuyController {
     public ResponseEntity<ApiResp> getAdjustCost(@RequestBody BuyingConfirmKeys context) {
         ApiResp apiResp = new ApiResp();
         
-		Map<BuyingConfirmKeys, Double> costmap = new HashMap<BuyingConfirmKeys, Double>();
-		CostGenerator.getCostData(costmap);
+		double ratio = DeliveryServiceService.getRatio(context);
+		System.out.println("BuyController.getAdjustCost()=======ratio =" + ratio);
 		
-		double cost = -1;
-		for(BuyingConfirmKeys ck:costmap.keySet()) {
-			if(ck.getDeliveryServiceType() == context.getDeliveryServiceType() &&
-					ck.getTimeFactorType() == context.getTimeFactorType()) {
-				cost = costmap.get(ck).doubleValue();
-				context.setCost(cost * context.getCost());
-				break;
-			}
-		}
-         
-        System.out.println("BuyController.getAdjustCost()=======ratio =" + cost);
+		context.setCost(context.getCost() * ratio);
+        
 		apiResp.setData(context);
         return new ResponseEntity<ApiResp>(apiResp, HttpStatus.OK);
-    }
-    
-    @PostMapping("/adjustcost2")
-    public double getAdjustCost2(@RequestBody BuyingConfirmKeys context) {
-        
-		Map<BuyingConfirmKeys, Double> costmap = new HashMap<BuyingConfirmKeys, Double>();
-		CostGenerator.getCostData(costmap);
-		
-		double cost = -1;
-		for(BuyingConfirmKeys ck:costmap.keySet()) {
-			if(ck.getDeliveryServiceType() == context.getDeliveryServiceType() &&
-					ck.getTimeFactorType() == context.getTimeFactorType()) {
-				cost = costmap.get(ck).doubleValue();
-				context.setCost(cost * context.getCost());
-				break;
-			}
-		}
-         
-        System.out.println("BuyController.getAdjustCost()=======ratio =" + cost);
-        return context.getCost();
     }
     
     /*
@@ -175,13 +141,11 @@ public class BuyController {
         return new ResponseEntity<ApiResp>(apiResp, HttpStatus.OK);
     }
     */
-
     
     @GetMapping("/initUT")
     public String testUT2() {
     	ApiResp apiResp = new ApiResp();
     	System.out.println("BuyController.testUT()==================");
-//    	ObjectResponse apiResp = new ObjectResponse(CommonConstant.SPLIT);
     	apiResp.setData(CommonConstant.SPLIT);
     	return CommonConstant.SPLIT;
     }

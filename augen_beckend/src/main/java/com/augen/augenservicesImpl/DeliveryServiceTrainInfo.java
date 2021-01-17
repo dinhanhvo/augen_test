@@ -5,8 +5,8 @@ import com.augen.augenservices.IDeliveryServiceTrainInfo;
 import com.augen.constant.CommonConstant;
 import com.augen.entity.DeliveryServiceEntity;
 import com.augen.entity.Train;
+import com.augen.layer.database.fake.DeliveryInfoGenerator;
 import com.augen.model.TimeFactor;
-import com.augen.util.DeliveryInfoGenerator;
 
 public class DeliveryServiceTrainInfo extends DeliveryServiceInfoService 
 							implements IDeliveryServiceTrainInfo, IDeliveryServiceArrivalInfo {
@@ -33,6 +33,10 @@ public class DeliveryServiceTrainInfo extends DeliveryServiceInfoService
 		return "Date of arrival: " + timeFactor.getLabel();
 	}
 	
+	/*
+	 * generate confirmed delivery info
+	 * @return: Train no: traiNo6 | Station of arrival: Train | Date of arrival: June to Aug | Cost: $8.0
+	 */
 	@Override
 	public String generateConfirmedInfo() {
 		StringBuffer info = new StringBuffer();
