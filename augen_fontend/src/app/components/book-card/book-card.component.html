@@ -17,7 +17,9 @@
     <div class="info">
         <b>{{book.title}}</b>
         <br>
-        {{book.author}}-{{book.publishedDate}}
+        <p class="clip">
+            {{book.author}}-{{book.publishedDate}}
+        </p>
     </div>
     <div class="footer" *ngIf="!isDetail">
         <p-button label="Choose" (onClick)="emitData()"></p-button>

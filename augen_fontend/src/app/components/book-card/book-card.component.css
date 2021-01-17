@@ -1,6 +1,6 @@
 .bcard {
     border: solid 1px #007ACC;
-    width: 230px;
+    width: 250px;
     height: 320px;
     margin: 10px;
     text-align: center;
@@ -15,6 +15,12 @@
 
 .info {
     height: 60px;
+    max-height: 600px;
+    
+}
+
+.clip {
+    text-overflow: ellipsis;
 }
 
 .footer {

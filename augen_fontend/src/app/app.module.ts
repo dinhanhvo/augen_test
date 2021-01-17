@@ -7,13 +7,13 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
-import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
-import { CardModule } from 'primeng/card';
 import { DropdownModule } from 'primeng-lts/dropdown';
 import { SelectButtonModule } from 'primeng-lts/selectbutton';
 import { RadioButtonModule } from 'primeng-lts/radiobutton';
 import { ScrollPanelModule } from 'primeng-lts/scrollpanel';
+import { ProgressSpinnerModule } from 'primeng-lts/progressspinner';
+
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -32,16 +32,15 @@ import { BookCardComponent } from './components/book-card/book-card.component';
         AppRoutingModule,
         BrowserAnimationsModule,
         FormsModule,
-        TableModule,
         HttpClientModule,
         InputTextModule,
         DialogModule,
         ButtonModule,
-        CardModule,
         DropdownModule,
         SelectButtonModule,
         RadioButtonModule,
-        ScrollPanelModule
+        ScrollPanelModule,
+        ProgressSpinnerModule
     ],
     providers: [],
     bootstrap: [AppComponent]

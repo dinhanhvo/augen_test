@@ -14,6 +14,8 @@ import { BuyService } from 'src/app/services/BuyService';
 })
 export class HomeComponent implements OnInit {
 
+  loading: boolean = false;
+
   books: BookModel[] = [];
   selectedBook: BookModel;
   displayDialog: boolean = false;
@@ -36,18 +38,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.bookService.getBooks(this.searchText).subscribe(
-      res => {
-        const items: any[] = JSON.parse(res.data).items; 
-        this.books = this.mapBookObject(items);
-
-        console.log(this.books);
-        
-      },
-      err => {
-        console.log('getBooks error', err);
-      }
-    )
+    this.getBookData();
     this.initFormData();
   }
 
@@ -75,7 +66,8 @@ export class HomeComponent implements OnInit {
     )
   }
 
-  search() {
+  getBookData() {
+    this.loading = true;
     this.bookService.getBooks(this.searchText).subscribe(
       res => {
         const items: any[] = JSON.parse(res.data).items; 
@@ -85,12 +77,16 @@ export class HomeComponent implements OnInit {
         }
         this.books = this.mapBookObject(items);
         // console.log(this.books);
-        
+        this.loading = false;
       },
       err => {
         console.log('getBooks error', err);
+        this.loading = false;
       }
     )
+  }
+  search() {
+    this.getBookData();
   }
 
   mapBookObject(items: any[]) {
