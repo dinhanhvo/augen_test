@@ -6,6 +6,10 @@ public abstract class ArrivalDeliveryService extends DeliveryServiceEntity {
 
 	protected Date dateArrival;
 
+	public String generateArrivalInfo() {
+		return "Date of arrival: " + timeFactor.getLabel();
+	}
+	
 	public Date getDateArrival() {
 		return dateArrival;
 	}

@@ -21,10 +21,6 @@ public class TrainServiceEntity extends ArrivalDeliveryService {
 		return "Station of arrival: " + this.getDeliveryName();
 	}
 	
-	public String generateArrivalInfo() {
-		return "Date of arrival: " + timeFactor.getLabel();
-	}
-	
 	public String generateConfirmedInfo() {
 		StringBuffer info = new StringBuffer();
     	info.append(this.getTrainNoInfo())

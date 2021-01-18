@@ -13,10 +13,6 @@ public class AircraftServiceEntity extends ArrivalDeliveryService {
         this.setDeliveryName(CommonConstant.AIRCRAFT_NAME);
     }
     
-	public String generateArrivalInfo() {
-		return "Date of arrival: " + timeFactor.getLabel();
-	}
-
 	public String generateFlightNo() {
 		return "Flight no: " + this.getFlightNo();
 	}

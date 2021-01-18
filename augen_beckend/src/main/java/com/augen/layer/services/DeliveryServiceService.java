@@ -3,9 +3,7 @@ package com.augen.layer.services;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.augen.augenservices.IDeliveryServiceInfo;
 import com.augen.constant.CommonConstant;
-import com.augen.factory.DeliveryServiceInfoFactory;
 import com.augen.layer.database.fake.CostGenerator;
 import com.augen.layer.database.fake.DeliveryGenerator;
 import com.augen.layer.database.fake.DeliveryInfoGenerator;
@@ -28,7 +26,7 @@ public class DeliveryServiceService {
 	    // convert BE delivery service model to FE delivery service options model - for using in drop-down service option
 	    List<DeliveryServiceOptionModel> listDSOM = listDelivery.stream().map(item -> {
 	    	DeliveryServiceOptionModel md = new DeliveryServiceOptionModel( 
-	    			item.getDeliveryName() + CommonConstant.SPLIT + "$" + item.getBaseCost(), // Train | $10 
+	    			item.getCaption(), // Train | $10 
 	    			item.getBaseCost(),
 	    			item.getDeliveryType()
 			); 

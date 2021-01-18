@@ -1,6 +1,7 @@
 package com.augen.model.entity;
 
 import com.augen.augenservices.IDeliveryServiceInfo;
+import com.augen.constant.CommonConstant;
 import com.augen.model.fontend.TimeFactor;
 
 public abstract class DeliveryServiceEntity implements IDeliveryServiceInfo {
@@ -15,12 +16,13 @@ public abstract class DeliveryServiceEntity implements IDeliveryServiceInfo {
 		return "Cost: $" + this.getCost();
 	}
 	
-//	public String generateConfirmedInfo() {
-//		return null;
-//	}
-	
-//	public void getDeliveryEntity() {
-//	}
+	/**
+	 * 
+	 * @return option name, Ex: 'Train | $10'
+	 */
+	public String getCaption() {
+		return this.getDeliveryName() + CommonConstant.SPLIT + "$" + this.getBaseCost();
+	}
 	
 	/** getters and setters**/
     public double getBaseCost() {
