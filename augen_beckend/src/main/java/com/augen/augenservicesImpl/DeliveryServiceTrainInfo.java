@@ -5,7 +5,7 @@ import com.augen.augenservices.IDeliveryServiceTrainInfo;
 import com.augen.constant.CommonConstant;
 import com.augen.layer.database.fake.DeliveryInfoGenerator;
 import com.augen.model.entity.DeliveryServiceEntity;
-import com.augen.model.entity.TrainEntity;
+import com.augen.model.entity.TrainServiceEntity;
 import com.augen.model.fontend.TimeFactor;
 
 public class DeliveryServiceTrainInfo extends DeliveryServiceInfoService 
@@ -18,13 +18,13 @@ public class DeliveryServiceTrainInfo extends DeliveryServiceInfoService
 
 	@Override
 	public String getTrainNoInfo() {
-		TrainEntity tr = (TrainEntity) this.getDeliveryServiceEntity();
+		TrainServiceEntity tr = (TrainServiceEntity) this.getDeliveryServiceEntity();
 		return "Train no: " + tr.getTrainNo();
 	}
 
 	@Override
 	public String getStationNameInfo() {
-		TrainEntity tr = (TrainEntity) this.getDeliveryServiceEntity();
+		TrainServiceEntity tr = (TrainServiceEntity) this.getDeliveryServiceEntity();
 		return "Station of arrival: " + tr.getDeliveryName();
 	}
 	
@@ -50,18 +50,18 @@ public class DeliveryServiceTrainInfo extends DeliveryServiceInfoService
 		return info.toString();
 	}
 
-	@Override
-	public void getDeliveryEntity() {
-		// get random delivery info
-    	int i = (int) Math.round(Math.random() * 9);
-    	String[] trs = DeliveryInfoGenerator.getDeliveryInfo(CommonConstant.TRAIN_TYPE, i);
-    	
-		DeliveryServiceEntity deliveryService = new TrainEntity();
-		((TrainEntity) deliveryService).setTrainNo(trs[0]);
-		((TrainEntity) deliveryService).setStationName(trs[1]);
-		
-        this.setDeliveryServiceEntity(deliveryService);
-		
-	}
+//	@Override
+//	public void getDeliveryEntity() {
+//		// get random delivery info
+//    	int i = (int) Math.round(Math.random() * 9);
+//    	String[] trs = DeliveryInfoGenerator.getDeliveryInfo(CommonConstant.TRAIN_TYPE, i);
+//    	
+//		DeliveryServiceEntity deliveryService = new TrainServiceEntity();
+//		((TrainServiceEntity) deliveryService).setTrainNo(trs[0]);
+//		((TrainServiceEntity) deliveryService).setStationName(trs[1]);
+//		
+//        this.setDeliveryServiceEntity(deliveryService);
+//		
+//	}
 
 }

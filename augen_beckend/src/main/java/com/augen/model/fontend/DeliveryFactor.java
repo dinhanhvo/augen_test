@@ -1,5 +1,9 @@
 package com.augen.model.fontend;
 
+/**
+ * map to DeliveryFactor option at client side
+ *
+ */
 public class DeliveryFactor {
     private int type;
     private double ratio;

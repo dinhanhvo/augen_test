@@ -19,7 +19,6 @@ import com.augen.model.fontend.BuyingConfirmKeys;
 import com.augen.model.fontend.DeliveryServiceOptionModel;
 import com.augen.model.fontend.TimeFactor;
 
-//@CrossOrigin(origins = CommonConstant.ORIGIN)
 @RestController
 public class BuyController {
 
@@ -66,6 +65,10 @@ public class BuyController {
         return new ResponseEntity<ApiResp>(apiResp, HttpStatus.OK);
     }
     
+    /**
+     * 
+     * @return 'Delivery service name | Cost' for user choose
+     */
     @GetMapping("/deliveryservices")
     public ResponseEntity<ApiResp> getDeliveryServices() {
         ApiResp apiResp = new ApiResp();
@@ -78,6 +81,11 @@ public class BuyController {
         return new ResponseEntity<ApiResp>(apiResp, HttpStatus.OK);
     }
     
+	/**
+	 * 
+	 * @param context buying confirmed keys
+	 * @return BuyingConfirmKeys includes cost base on delivery service and time factor keys
+	 */
     @PostMapping("/adjustcost")
     public ResponseEntity<ApiResp> getAdjustCost(@RequestBody BuyingConfirmKeys context) {
         ApiResp apiResp = new ApiResp();
@@ -86,7 +94,7 @@ public class BuyController {
 		System.out.println("BuyController.getAdjustCost()=======ratio =" + ratio);
 		
 		context.setCost(context.getCost() * ratio);
-        
+		System.out.println("BuyController.getAdjustCost()=======Cost =" + context.getCost());
 		apiResp.setData(context);
         return new ResponseEntity<ApiResp>(apiResp, HttpStatus.OK);
     }

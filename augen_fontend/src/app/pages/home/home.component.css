@@ -8,9 +8,6 @@
 }
 
 .products {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
     flex-wrap: wrap;
     background-color: #FFD661;
     width: 100%;
@@ -22,4 +19,10 @@
 
 .form_label {
     text-align: right
+}
+
+.row_center {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
 }

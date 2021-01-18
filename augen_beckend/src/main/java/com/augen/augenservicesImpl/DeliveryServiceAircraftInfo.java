@@ -49,17 +49,17 @@ public class DeliveryServiceAircraftInfo extends DeliveryServiceInfoService
 		return info.toString();
 	}
 
-	@Override
-	public void getDeliveryEntity() {
-		// get random delivery info
-    	int i = (int) Math.round(Math.random() * 9);
-    	String[] ms = DeliveryInfoGenerator.getDeliveryInfo(CommonConstant.AIRCRAFT_TYPE, i);
-    	
-		DeliveryServiceEntity deliveryService = new AircraftServiceEntity();
-		((AircraftServiceEntity) deliveryService).setFlightNo(ms[0]);
-		((AircraftServiceEntity) deliveryService).setGateNumber(ms[1]);
-		
-        this.setDeliveryServiceEntity(deliveryService);
-	}
+//	@Override
+//	public void getDeliveryEntity() {
+//		// get random delivery info
+//    	int i = (int) Math.round(Math.random() * 9);
+//    	String[] ms = DeliveryInfoGenerator.getDeliveryInfo(CommonConstant.AIRCRAFT_TYPE, i);
+//    	
+//		DeliveryServiceEntity deliveryService = new AircraftServiceEntity();
+//		((AircraftServiceEntity) deliveryService).setFlightNo(ms[0]);
+//		((AircraftServiceEntity) deliveryService).setGateNumber(ms[1]);
+//		
+//        this.setDeliveryServiceEntity(deliveryService);
+//	}
 
 }

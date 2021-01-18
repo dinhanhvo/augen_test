@@ -1,24 +1,15 @@
 package com.augen.model.fontend;
 
+/**
+ * Receive confirmed info of user by this model
+ *
+ */
 public class BuyingConfirmKeys {
 	private int deliveryServiceType;
 	private int timeFactorType;
 	private double cost;
 	private String bookId;
 	
-//	public BuyingConfirmKeys(int deliveryServiceType, int timeFactorType, double cost) {
-//		super();
-//		this.deliveryServiceType = deliveryServiceType;
-//		this.timeFactorType = timeFactorType;
-//		this.cost = cost;
-//	}
-//
-//	public BuyingConfirmKeys(int deliveryServiceType, int timeFactorType) {
-//		super();
-//		this.deliveryServiceType = deliveryServiceType;
-//		this.timeFactorType = timeFactorType;
-//	}
-
 	public BuyingConfirmKeys(int deliveryServiceType, int timeFactorType, double cost, String bookId) {
 		super();
 		this.deliveryServiceType = deliveryServiceType;

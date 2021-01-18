@@ -1,5 +1,7 @@
 package com.augen.augenservices;
 
+import com.augen.model.entity.DeliveryServiceEntity;
+
 public interface IDeliveryServiceInfo {
 
 	public String generateCostInfo();
@@ -11,8 +13,8 @@ public interface IDeliveryServiceInfo {
 	public String generateConfirmedInfo();
 	
 	/*
-	 * get delivery entity from database
+	 * get random delivery entity from database
 	 */
-	public void getDeliveryEntity();
+//	public DeliveryServiceEntity getDeliveryEntity();
 	
 }

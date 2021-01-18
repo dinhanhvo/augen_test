@@ -17,6 +17,10 @@ import com.augen.model.fontend.TimeFactor;
 
 public class DeliveryServiceService {
 	
+    /**
+     * 
+     * @return 'Delivery service name | Cost' for user choose
+     */
 	public static List<DeliveryServiceOptionModel> getDeliveryServices() {
 		// get Delivery Service data entity
 	    List<DeliveryServiceEntity> listDelivery = DeliveryGenerator.getDeliveryServiceData();
@@ -34,37 +38,48 @@ public class DeliveryServiceService {
 	    return listDSOM;
 	}
 
+	/**
+	 * 
+	 * @param context buying confirmed keys
+	 * @return ratio base on delivery service and time factor
+	 */
 	public static double getRatio(BuyingConfirmKeys context) {
 		double ratio = CostGenerator.getRatioByFactors(context);
 		System.out.println("DeliveryServiceService.getRatio()========== ratio: " + ratio);
 		return ratio;
 	}
 	
+	/**
+	 * @param: BuyingConfirmKeys to be saved
+	 * @return: id of stored delivery info
+	 */
 	public static long saveConfirmBuying(BuyingConfirmKeys confirmKeysCost) {
 		TimeFactor timeFactor = TimeFactorService.getTimeFactor(confirmKeysCost.getTimeFactorType());
         
-        // get DeliveryServiceInfoService base on type of service
-        // input: timeFactor and cost to generate 'response delivery info'
-        IDeliveryServiceInfo deliveryService = DeliveryServiceInfoFactory.getDeliveryServiceInfo(
-        		confirmKeysCost.getDeliveryServiceType(), 
-        		timeFactor,
-        		confirmKeysCost.getCost()
-		);
-        
-        // get random stored delivery info
-        deliveryService.getDeliveryEntity();
-        
+		// get random DeliveryServiceEntity stored delivery info
+        int serviceType = confirmKeysCost.getDeliveryServiceType();
+        DeliveryServiceEntity deliveryService = DeliveryInfoGenerator.getDeliveryEntityByType(serviceType);
+        deliveryService.setTimeFactor(timeFactor);
+        deliveryService.setCost(confirmKeysCost.getCost());
+         
         // generate delivery info to response
         String deliveryInfo = deliveryService.generateConfirmedInfo();
         
+        // wrapper info to BuyBookModel
         BuyBookModel bbModel = new BuyBookModel(deliveryInfo, confirmKeysCost.getCost(), confirmKeysCost.getBookId());
         
         // fake save to database
         long id = DeliveryInfoGenerator.saveDeliveryConfirmedInfo(bbModel);
-        System.out.println("DeliveryServiceService.saveConfirmBuying()==id: "+id+"=====Info: "+deliveryInfo+"==");
+        
+        System.out.println("DeliveryServiceService.saveConfirmBuying()==id: "+id+"== bbModel: " + bbModel);
         return id;
 	}
 	
+	/**
+	 * 
+	 * @param id
+	 * @return saved BuyBookModel by Id
+	 */
     public static BuyBookModel getDeliveryInfoStringById(Long id) {
     	return DeliveryInfoGenerator.getDeliveryInfoStringById(id);
     }

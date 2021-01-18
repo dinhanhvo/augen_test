@@ -5,7 +5,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.augen.augenservices.IDeliveryServiceInfo;
+import com.augen.augenservicesImpl.DeliveryServiceAircraftInfo;
+import com.augen.augenservicesImpl.DeliveryServiceMotoInfo;
+import com.augen.augenservicesImpl.DeliveryServiceTrainInfo;
 import com.augen.constant.CommonConstant;
+import com.augen.model.entity.AircraftServiceEntity;
+import com.augen.model.entity.DeliveryServiceEntity;
+import com.augen.model.entity.MotoBikeServiceEntity;
+import com.augen.model.entity.TrainServiceEntity;
 import com.augen.model.fontend.BuyBookModel;
 
 public class DeliveryInfoGenerator {
@@ -63,4 +71,36 @@ public class DeliveryInfoGenerator {
     	System.out.println("DeliveryInfoGenerator.saveDeliveryConfirmedInfo()======= saved info: " + deliveryInfo);
     	return id;
     }
+    
+    /**
+     * 
+     * @param deliveryType
+     * @return random delivery info by type
+     */
+	public static DeliveryServiceEntity getDeliveryEntityByType(int deliveryType) {
+		int i = (int) Math.round(Math.random() * 9);
+
+    	DeliveryServiceEntity deliveryService = null;
+        if (deliveryType == CommonConstant.MOTOBIKE_TYPE) {
+        	String[] ms = DeliveryInfoGenerator.getDeliveryInfo(CommonConstant.MOTOBIKE_TYPE, i);
+        	deliveryService = new MotoBikeServiceEntity();
+    		((MotoBikeServiceEntity) deliveryService).setDriverName(ms[0]);
+    		((MotoBikeServiceEntity) deliveryService).setMobile(ms[1]);
+//    		this.setDeliveryServiceEntity(deliveryService);
+        } else if (deliveryType == CommonConstant.TRAIN_TYPE) {
+        	String[] trs = DeliveryInfoGenerator.getDeliveryInfo(CommonConstant.TRAIN_TYPE, i);
+        	
+    		deliveryService = new TrainServiceEntity();
+    		((TrainServiceEntity) deliveryService).setTrainNo(trs[0]);
+    		((TrainServiceEntity) deliveryService).setStationName(trs[1]);
+        } else if (deliveryType == CommonConstant.AIRCRAFT_TYPE) {
+        	String[] air = DeliveryInfoGenerator.getDeliveryInfo(CommonConstant.AIRCRAFT_TYPE, i);
+        	
+    		deliveryService = new AircraftServiceEntity();
+    		((AircraftServiceEntity) deliveryService).setFlightNo(air[0]);
+    		((AircraftServiceEntity) deliveryService).setGateNumber(air[1]);
+        }
+
+		return deliveryService;
+	}
 }

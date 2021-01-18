@@ -2,7 +2,7 @@ package com.augen.model.entity;
 
 import com.augen.constant.CommonConstant;
 
-public class AircraftServiceEntity extends DeliveryServiceEntity {
+public class AircraftServiceEntity extends ArrivalDeliveryService {
 
     private String flightNo;
     private String gateNumber;
@@ -12,7 +12,33 @@ public class AircraftServiceEntity extends DeliveryServiceEntity {
         this.setDeliveryType(CommonConstant.AIRCRAFT_TYPE);
         this.setDeliveryName(CommonConstant.AIRCRAFT_NAME);
     }
+    
+	public String generateArrivalInfo() {
+		return "Date of arrival: " + timeFactor.getLabel();
+	}
 
+	public String generateFlightNo() {
+		return "Flight no: " + this.getFlightNo();
+	}
+
+	public String generateGateNumber() {
+		return "Gate of arrival: " + this.getGateNumber();
+	}
+    
+	public String generateConfirmedInfo() {
+		StringBuffer info = new StringBuffer();
+    	info.append(this.generateFlightNo())
+    		.append(CommonConstant.SPLIT)
+    		.append(this.generateGateNumber())
+    		.append(CommonConstant.SPLIT)
+    		.append(this.generateArrivalInfo())
+    		.append(CommonConstant.SPLIT)
+    		.append(this.generateCostInfo());
+		return info.toString();
+	}
+
+	
+	/** getters and setters**/
     public String getFlightNo() {
         return flightNo;
     }

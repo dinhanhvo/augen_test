@@ -1,24 +1,20 @@
-<div class="p-grid" style="text-align: right">
-    <div>
-        <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
-        <input type="text" pInputText size="50" placeholder="Search by book title or author"
-          [(ngModel)] = "searchText" style="width:auto">
-    </div>
-    <div class="ui-dialog-buttonpane ui-helper-clearfix">
-        <button pButton  type="button" pButton icon="pi pi-check" (click)="search()" 
-            label="Search" p-button-raised p-button-rounded>
-        </button>
-    </div>
+<div class="p-grid row_center" >
+    <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
+    <input type="text" pInputText size="50" placeholder="Search by book title or author"
+        [(ngModel)] = "searchText" style="width:auto">
+    <button pButton  type="button" pButton icon="pi pi-check" (click)="search()" 
+        label="Search" p-button-raised p-button-rounded>
+    </button>
 </div>
 <br>
 
-<div style="text-align: center" *ngIf="loading; else showdata">
+<div class="row_center" *ngIf="loading; else showdata">
     <p-progressSpinner></p-progressSpinner>
 </div>
 <ng-template #showdata>
     Total items: {{books.length}}
     <br>
-    <div class="products">
+    <div class="products row_center">
         <div  *ngFor="let book of books" >
             <app-book-card
                 [book] = book
@@ -51,7 +47,7 @@
         <br>
         <div class="p-grid card">
             <div class="p-col-12 p-md-4 p-lg-4 form_label">
-                Sevice: 
+                Delivery Sevice: 
             </div>
             <div class="p-col-12 p-md-8 p-lg-8">
                 <p-selectButton [options]="deliveryservices"
