@@ -1,4 +1,4 @@
-##Time summary: 
+## Time summary: 
 1. Analise Requirement: 1 hour 
 2. Preparation: 2 hours 
 3. Coding: 18 hours (including tests) 

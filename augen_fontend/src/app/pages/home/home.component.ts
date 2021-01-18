@@ -71,11 +71,11 @@ export class HomeComponent implements OnInit {
     this.bookService.getBooks(this.searchText).subscribe(
       res => {
         const items: any[] = JSON.parse(res.data).items; 
-        if (items.length === 0) {
+        if (items === undefined || items.length === 0) {
           this.books = [];
         } else {
+          this.books = this.mapBookObject(items);
         }
-        this.books = this.mapBookObject(items);
         // console.log(this.books);
         this.loading = false;
       },
@@ -90,17 +90,19 @@ export class HomeComponent implements OnInit {
   }
 
   mapBookObject(items: any[]) {
-    if (items.length === 0) {
+    if (items === undefined || items.length === 0) {
       return [];
     } 
     return items.map(item => {
       let book: BookModel = new BookModel();
-      book.id = item.id;
-      book.title = item.volumeInfo.title;
-      book.author = item.volumeInfo.authors;
-      book.imageLinks = item.volumeInfo.imageLinks;
-      book.publishedDate = item.volumeInfo.publishedDate;
-      book.description = item.volumeInfo.description;
+      if (item.volumeInfo) {
+        book.id = item.id;
+        book.title = item.volumeInfo.title;
+        book.author = item.volumeInfo.authors;
+        book.imageLinks = item.volumeInfo.imageLinks;
+        book.publishedDate = item.volumeInfo.publishedDate;
+        book.description = item.volumeInfo.description;
+      }
       return book;
     });
   }
