@@ -1,6 +1,10 @@
-## Augen Test 
-
-![App Screenshot](home.png)
+##Time summary: 
+• Analise Requirement: 1 hour 
+• Preparation: 2 hours 
+• Coding: 18 hours (including tests) 
+• Styling 30 minutes 
+• Building and testing 30 minutes 
+	Grand total: 22 hours
 
 ## Environment require:
 1. Java 8
